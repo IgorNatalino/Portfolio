@@ -1,0 +1,17 @@
+@import url(styles/header.css);
+
+:root {
+	--branco: var(white);
+	--preto: var(black);
+
+	--cor-de-fundo: var();
+	--cor-primaria: var();
+	--cor-secundaria: var();
+
+	--fonte-primaria: var();
+	--fonte-secundaria: var();
+}
+
+body {
+	background-color: rgb(248, 248, 248);
+}

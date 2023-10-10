@@ -1,0 +1,23 @@
+* {
+	outline: 1px dashed rgb(255, 185, 185);
+}
+.cabecalho {
+}
+
+.cabecalho__logos {
+	display: flex;
+	padding: 1rem 2rem;
+	justify-content: space-between;
+	align-items: center;
+}
+.foxys-logo {
+	width: 18%;
+}
+
+.cabecalho__menu-hamburguer {
+	background-image: url(../assets/Menu.svg);
+	background-repeat: no-repeat;
+	background-position: center;
+	width: 2rem;
+	height: 2rem;
+}
