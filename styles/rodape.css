@@ -1,0 +1,9 @@
+.rodape {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 65px;
+	font-weight: bolder;
+	background: linear-gradient(to bottom, var(--laranja-secundario) 0%, var(--laranja-secundario) 90%, var(--laranja) 90%, var(--laranja) 100%);
+	color: var(--azul-marinho);
+}

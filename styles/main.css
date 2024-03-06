@@ -1,0 +1,113 @@
+.apresentacao_container {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	padding: 25px 0 0 0;
+	color: var(--azul-marinho);
+}
+
+.apresentacao_doodle {
+	padding: 20px 0 0 0;
+}
+
+.apresentacao_titulo {
+	font-weight: 600;
+}
+
+.apresentacao_subtitulo {
+	text-align: center;
+	padding: 12px;
+	line-height: 145%;
+}
+
+.apresentacao_social {
+	position: relative;
+	bottom: 50px;
+	left: 100%;
+}
+
+.apresentacao_social_items,
+.icones_contatos_items {
+	padding: 10px 0;
+}
+
+/* WAVES */
+
+.wave_1 {
+	background-image: url(../assets/wave-mobilr.png);
+	height: 84px;
+	background-size: cover;
+}
+
+.wave {
+	background-image: url(../assets/wave-mobilr.png);
+	height: 84px;
+	background-size: cover;
+	background-color: var(--laranja-secundario);
+}
+
+.wave_laranja {
+	background-image: url(../assets/wave-laranja-mobile.png);
+	height: 84px;
+	background-size: cover;
+}
+
+/* SOBRE */
+.underdesign {
+	position: relative;
+	bottom: 11.7px;
+	text-transform: uppercase;
+	font-size: 82px;
+	font-weight: bold;
+	opacity: 0.05;
+	left: -40px;
+}
+
+.section_main {
+	display: flex;
+	flex-direction: column;
+	padding: 0 40px 40px;
+}
+
+.section_main_laranja {
+	display: flex;
+	flex-direction: column;
+	padding: 0 40px 40px;
+	background-color: var(--laranja-secundario);
+}
+
+.subtitulo {
+	text-transform: uppercase;
+	font-size: 20px;
+	font-weight: bold;
+	position: relative;
+	bottom: 65px;
+}
+
+.sobre_perfil {
+	padding: 0 0 25px 0;
+	align-self: center;
+}
+
+.textos {
+	color: var(--azul-marinho);
+	line-height: 145%;
+	padding: 20px 0 60px 0;
+}
+
+.btns {
+	background-color: var(--laranja);
+	font-weight: 600;
+	color: var(--branco);
+	padding: 10px 25px;
+	border-radius: 20px;
+	align-self: center;
+}
+
+.contatos_links {
+	color: var(--azul-marinho);
+	padding: 0 10px;
+	position: relative;
+	bottom: 5px;
+}

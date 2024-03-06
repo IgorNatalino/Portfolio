@@ -1,0 +1,28 @@
+@import url(header.css);
+@import url(main.css);
+@import url(rodape.css);
+@import url(skills.css);
+@import url(projetos.css);
+
+:root {
+	--fonte-principal: 'Poppins', sans-serif;
+	--sombra: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+[data-mode='light'] {
+	--background: #f9f9f905;
+	--preto: #000;
+	--branco: #fff;
+	--azul-marinho: #00223c;
+	--azul-dark: #001525;
+	--laranja: #ff7600;
+	--laranja-secundario: #ff8c2891;
+	--cinza: #f1f1f1;
+}
+
+body {
+	background-color: var(--background);
+	font-family: var(--fonte-principal);
+	font-size: 18px;
+	overflow-x: hidden;
+}
