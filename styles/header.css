@@ -3,15 +3,20 @@
 	align-items: center;
 	justify-content: space-between;
 	height: 80px;
-	padding: 0 24px;
 }
 
 .cabecalho_logo {
 	height: 90%;
+	padding: 0 24px;
 }
 
 .cabecalho_menu {
 	width: 36px;
+	padding: 28px 24px;
+}
+
+.cabecalho_menu:active {
+	background-color: var(--laranja);
 }
 
 .hidden {
@@ -23,7 +28,7 @@
 	position: absolute;
 	top: 80px;
 	right: 0;
-	width: 70%;
+	width: 62%;
 	box-shadow: var(--sombra);
 	padding: 15px 0;
 }
@@ -34,12 +39,18 @@
 }
 
 .menu_lista_itens,
-.menu_lista_titulo {
+.menu_lista_titulo,
+.menu_lista_rodape {
 	display: flex;
 	justify-content: space-between;
-	padding: 16px 24px;
+	padding: 18px 24px;
 }
 
 .menu_lista_itens {
 	text-transform: uppercase;
+}
+
+.menu_lista_itens:hover {
+	background-color: var(--azul-marinho);
+	color: var(--branco);
 }

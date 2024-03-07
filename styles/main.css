@@ -3,7 +3,7 @@
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-	padding: 25px 0 0 0;
+	padding: 25px 25px 0;
 	color: var(--azul-marinho);
 }
 
@@ -22,9 +22,7 @@
 }
 
 .apresentacao_social {
-	position: relative;
-	bottom: 50px;
-	left: 100%;
+	align-self: flex-end;
 }
 
 .apresentacao_social_items,
