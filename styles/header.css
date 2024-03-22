@@ -11,12 +11,9 @@
 }
 
 .cabecalho_menu {
-	width: 36px;
-	padding: 28px 24px;
-}
-
-.cabecalho_menu:active {
-	background-color: var(--laranja);
+	stroke: var(--azul-marinho);
+	width: 50px;
+	padding: 0 24px;
 }
 
 .hidden {
