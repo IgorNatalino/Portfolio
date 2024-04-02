@@ -51,3 +51,7 @@
 	background-color: var(--azul-marinho);
 	color: var(--branco);
 }
+
+.dark_input {
+	align-self: center;
+}
