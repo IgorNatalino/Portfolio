@@ -12,7 +12,7 @@ menuHamburguer.addEventListener('click', abreMenu);
 
 // DE VOLTA AO TOPO
 
-let mybutton = document.getElementById('myBtn');
+let VoltaTopo = document.querySelector('.voltatopo_btn');
 
 window.onscroll = function () {
 	AparecerBotao();
@@ -21,17 +21,17 @@ window.onscroll = function () {
 function AparecerBotao() {
 	// Pixels para o botão aparecer
 	if (document.body.scrollTop > 120 || document.documentElement.scrollTop > 120) {
-		mybutton.style.display = 'block';
+		VoltaTopo.style.display = 'block';
 	} else {
-		mybutton.style.display = 'none';
+		VoltaTopo.style.display = 'none';
 	}
 }
 
-mybutton.addEventListener('click', VoltoAoTopo());
+VoltaTopo.addEventListener('click', VoltoAoTopo);
 
 function VoltoAoTopo() {
 	window.scrollTo({
 		top: 0,
-		behavior: 'smooth',
+		behavior: 'smooth', // Adicionado um comportamento de scroll suave
 	});
 }
