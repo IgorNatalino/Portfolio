@@ -4,6 +4,6 @@
 	align-items: center;
 	height: 65px;
 	font-weight: bolder;
-	background: linear-gradient(to bottom, var(--laranja-secundario) 0%, var(--laranja-secundario) 90%, var(--laranja) 90%, var(--laranja) 100%);
-	color: var(--azul-marinho);
+	background: linear-gradient(to bottom, var(--background-destaque) 0%, var(--background-destaque) 90%, var(--cor-destaque-2) 90%, var(--cor-destaque-2) 100%);
+	color: var(--texto-principal);
 }

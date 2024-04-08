@@ -11,7 +11,7 @@
 }
 
 .cabecalho_menu {
-	stroke: var(--azul-marinho);
+	stroke: var(--cor-destaque);
 	width: 50px;
 	padding: 0 24px;
 }
@@ -21,7 +21,7 @@
 }
 
 .cabecalho_menu_lista {
-	background-color: var(--cinza);
+	background-color: var(--background-secundario);
 	position: absolute;
 	top: 80px;
 	right: 0;
@@ -31,7 +31,7 @@
 }
 
 .menu_lista_titulo {
-	color: var(--laranja);
+	color: var(--cor-destaque-2);
 	font-weight: bold;
 }
 
@@ -48,8 +48,8 @@
 }
 
 .menu_lista_itens:hover {
-	background-color: var(--azul-marinho);
-	color: var(--branco);
+	background-color: var(--hover);
+	color: var(--texto-secundario);
 }
 
 .dark_input {

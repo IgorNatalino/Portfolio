@@ -1,7 +1,7 @@
 @import url(header.css);
 @import url(main.css);
-@import url(rodape.css);
 @import url(skills.css);
+@import url(rodape.css);
 
 :root {
 	--fonte-principal: 'Poppins', sans-serif;
@@ -9,26 +9,30 @@
 	--cinza-background: #f9f9f905;
 	--preto: #000;
 	--branco: #fff;
+	--azul: #004174;
 	--azul-marinho: #00223c;
 	--azul-dark: #001525;
 	--laranja: #ff7600;
-	--laranja-secundario: #ff8c2891;
+	--laranja-secundario: #ff973ca4;
+	--laranja-botoes: #ff9a43;
 	--cinza: #f1f1f1;
 
 	/* Cores especificas dark-mode */
-
-	
 }
 
 [data-mode='light'] {
 	--background: var(--cinza-background);
-	--preto: #000;
-	--branco: #fff;
-	--texto-icons: var(--azul-marinho);
-	--azul-dark: #001525;
-	--laranja: #ff7600;
-	--laranja-secundario: #ff8c2891;
-	--cinza: #f1f1f1;
+	--background-secundario: var(--cinza);
+	--background-destaque: var(--laranja-secundario);
+	--texto-principal: var(--azul-marinho);
+	--texto-secundario: var(--branco);
+	--cor-destaque: var(--azul-marinho);
+	--cor-destaque-2: var(--laranja);
+	--hover: var(--azul-marinho);
+	--botoes: var(--laranja-botoes);
+	--botoes-texto: var(--branco);
+	--botao-top-1: var(--azul);
+	--botao-top-2: var(--azul-dark);
 }
 
 body {
