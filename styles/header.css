@@ -3,6 +3,7 @@
 	align-items: center;
 	justify-content: space-between;
 	height: 80px;
+	background-color: var(--header-background);
 }
 
 .cabecalho_logo {
@@ -21,7 +22,7 @@
 }
 
 .cabecalho_menu_lista {
-	background-color: var(--background-secundario);
+	background-color: var(--background-menu);
 	position: absolute;
 	top: 80px;
 	right: 0;
@@ -45,6 +46,10 @@
 
 .menu_lista_itens {
 	text-transform: uppercase;
+}
+
+.menu_lista_itens {
+	color: var(--texto-principal);
 }
 
 .menu_lista_itens:hover {
