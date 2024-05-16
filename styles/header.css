@@ -74,6 +74,10 @@
 
 @media (min-width: 1023px) {
 	/* big landscape tablets, laptops, and desktops */
+	.cabecalho {
+		padding: 0 80px;
+	}
+	
 	.cabecalho_menu {
 		display: none;
 	}

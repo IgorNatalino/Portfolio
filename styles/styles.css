@@ -17,6 +17,9 @@
 	--cinza: #f1f1f1;
 
 	/* Cores especificas dark-mode */
+
+	--font-titulo-desk: 25px;
+	--font-sub-desk: 20px;
 }
 
 [data-mode='light'] {
