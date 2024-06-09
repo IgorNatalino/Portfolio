@@ -38,12 +38,15 @@
 	--botao-top-2: var(--azul-dark);
 }
 
+html {
+	scroll-behavior: smooth;
+}
+
 body {
 	background-color: var(--background);
 	font-family: var(--fonte-principal);
 	font-size: 18px;
 	overflow-x: hidden;
-	scroll-behavior: smooth;
 }
 
 @media (min-width: 480px) {
