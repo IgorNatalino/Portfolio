@@ -1,14 +1,19 @@
 .skills {
 	display: flex;
 	flex-direction: row;
-	justify-content: space-between;
+	align-items: center;
+	justify-content: center;
 	flex-wrap: wrap;
 	gap: 28px;
 }
 
 .skills_logos {
-	background-color: var(--laranja-botoes);
-	width: 60px;
+	background-color: var(--skills-background);
+	width: 65px;
 	padding: 15px;
-	border-radius: 25px;
+	border-radius: 20px;
+}
+
+#desenvolvendo {
+	padding-top: 40px;
 }

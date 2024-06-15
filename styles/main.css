@@ -18,10 +18,18 @@
 	text-align: center;
 }
 
+html[data-theme='dark'] .apresentacao_titulo {
+	font-weight: 500;
+}
+
 .apresentacao_subtitulo {
 	text-align: center;
 	padding: 12px;
 	line-height: 145%;
+}
+
+html[data-theme='dark'] .apresentacao_subtitulo {
+	font-weight: 100;
 }
 
 .apresentacao_social {
@@ -40,8 +48,9 @@
 	text-transform: uppercase;
 	font-size: 82px;
 	font-weight: bold;
-	opacity: 0.05;
+	opacity: 1;
 	left: -40px;
+	color: var(--texto-opaco);
 }
 
 .section_main {
@@ -60,10 +69,14 @@
 .subtitulo {
 	text-transform: uppercase;
 	font-size: 20px;
-	font-weight: bold;
+	font-weight: 700;
 	position: relative;
 	bottom: 65px;
 	color: var(--texto-principal);
+}
+
+html[data-theme='dark'] .subtitulo {
+	font-weight: 400;
 }
 
 .sobre_perfil {
@@ -76,6 +89,10 @@
 	color: var(--texto-principal);
 	line-height: 145%;
 	padding: 10px 0;
+}
+
+html[data-theme='dark'] .textos {
+	font-weight: lighter;
 }
 
 .lista_sobre {
@@ -107,14 +124,20 @@
 
 /* EXPERIENCIA */
 
+.exp_logos {
+	display: flex;
+	justify-content: center;
+	margin: 20px 0;
+}
+
 #exp_wet {
-	width: 60%;
-	align-self: center;
+	width: 80%;
+	max-width: 500px;
 }
 
 #exp_master {
-	width: 40%;
-	align-self: center;
+	width: 90%;
+	max-width: 450px;
 }
 
 /* CONTATOS */
@@ -125,8 +148,16 @@
 	bottom: 5px;
 }
 
+/* VARIAVEIS DARK MODE */
+html[data-theme='dark'] .icones_social {
+	filter: invert(100%) sepia(0%) saturate(411%) hue-rotate(45deg) brightness(400%) contrast(100%);
+}
+
 @media (min-width: 480px) {
 	/* smartphones, Android phones, landscape iPhone */
+	.underdesign {
+		font-size: 74px;
+	}
 }
 
 @media (min-width: 1023px) {
@@ -157,9 +188,13 @@
 	.section_main_laranja {
 		padding: 0 80px 40px;
 	}
+
+	#exp_wet {
+		width: 30%;
+	}
 }
 
-@media (min-width: 1400px) {
+@media (min-width: 1281px) {
 	/* hi-res laptops and desktops */
 	.apresentacao_container {
 		padding: 25px 150px 0;

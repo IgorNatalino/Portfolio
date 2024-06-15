@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-br" data-mode="light">
+<html lang="pt-br" data-theme="light">
 
 <head>
     <meta charset="UTF-8">
@@ -17,7 +17,8 @@
 
 <body>
     <header class="cabecalho">
-        <img class="cabecalho_logo" src="assets/Foxys-ICO.png" alt="Logo de Raposa Igor Natalino">
+        <img loading="lazy" class="cabecalho_logo" src="assets/Foxys-ICO.png" alt="Logo de Raposa Igor Natalino">
+        <!-- TODO CRIAR E ADICIONAR LOGO COM NOME COMPLETO -->
 
         <svg class="cabecalho_menu" alt="Menu Hamburguer" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 10"
             stroke="#eee" stroke-width=".6" fill="rgba(0,0,0,0)" stroke-linecap="round" style="cursor: pointer">
@@ -40,14 +41,18 @@
 
         <ul class="cabecalho_menu_lista hidden">
             <li class="menu_lista_titulo">Categorias</li>
-            <li class="menu_lista_itens"><a href="#Sobre">Sobre</a></li>
-            <li class="menu_lista_itens"><a href="#Skills">Skills</a></li>
-            <li class="menu_lista_itens"><a href="#Projetos">Projetos</a></li>
-            <li class="menu_lista_itens"><a href="#Experiencias">Experiências</a></li>
-            <li class="menu_lista_itens"><a href="#Contato">Contato</a></li>
+            <li class="menu_lista_itens"><a class="menu_lista_link" href="#Sobre">Sobre</a></li>
+            <li class="menu_lista_itens"><a class="menu_lista_link" href="#Skills">Skills</a></li>
+            <li class="menu_lista_itens"><a class="menu_lista_link" href="#Projetos">Projetos</a></li>
+            <li class="menu_lista_itens"><a class="menu_lista_link" href="#Experiencias">Experiências</a></li>
+            <li class="menu_lista_itens"><a class="menu_lista_link" href="#Contato">Contato</a></li>
             <li class="menu_lista_rodape">
-                <img src="assets/Icons/Language.png" alt="Icone para mudar idioma">
-                <img class="dark_input" src="assets/Icons/darkmode.png" alt="Input para dark mode">
+
+                <label class="switch">
+                    <input type="checkbox">
+                    <span class="slider"></span>
+                </label>
+
             </li>
         </ul>
 
@@ -59,7 +64,10 @@
             <li class="lista_itens"><a href="#Contato">Contato</li></a>
         </ul>
 
-        <img class="dark_input_desk" src="assets/Icons/darkmode.png" alt="Input para dark mode">
+        <label class="switch_desk">
+            <input type="checkbox">
+            <span class="slider_desk"></span>
+        </label>
 
     </header>
 
@@ -75,27 +83,32 @@
         <section class="apresentacao_container">
             <div class="apresentacao_main">
                 <div class="apresentacao_texto">
-                    <h1 class="apresentacao_titulo">Hey! I’m Igor Natalino</h1>
-                    <h3 class="apresentacao_subtitulo">IT Support & <br> Front End Developer</h3>
+                    <h1 class="apresentacao_titulo">Olá! Sou Igor Natalino</h1>
+                    <h3 class="apresentacao_subtitulo">Suporte TI & <br> Desenvolvedor Front-end</h3>
                 </div>
                 <div class="apresentacao_images">
-                    <img class="apresentacao_doodle" src="assets/Doodle.png" alt="Bolha Laranja de Ilustração">
+                    <img loading="lazy" class="apresentacao_doodle" src="assets/Doodle.png"
+                        alt="Bolha Laranja de Ilustração">
                 </div>
             </div>
 
             <ul class="apresentacao_social">
                 <li class="apresentacao_social_items"><a target="_blank" href="https://github.com/IgorNatalino">
-                        <img src="assets/Icons/SocialMedia/github.png" alt="Icone do Github">
+                        <img class="icones_social" loading="lazy" src="assets/Icons/SocialMedia/github.png"
+                            alt="Icone do Github">
                     </a></li>
                 <li class="apresentacao_social_items"><a target="_blank" href="mailto:igornatalino@gmail.com.br">
-                        <img src="assets/Icons/SocialMedia/gmail.png" alt="Icone de Email">
+                        <img class="icones_social" loading="lazy" src="assets/Icons/SocialMedia/gmail.png"
+                            alt="Icone de Email">
                     </a></li>
                 <li class="apresentacao_social_items"><a target="_blank"
                         href="https://www.linkedin.com/in/igornatalino/">
-                        <img src="assets/Icons/SocialMedia/linkedin.png" alt="Icone do Linkedin">
+                        <img class="icones_social" loading="lazy" src="assets/Icons/SocialMedia/linkedin.png"
+                            alt="Icone do Linkedin">
                     </a></li>
                 <li class="apresentacao_social_items"><a target="_blank" href="https://www.instagram.com/_natalino">
-                        <img src="assets/Icons/SocialMedia/instagram.png" alt="Icone do Instagram">
+                        <img class="icones_social" loading="lazy" src="assets/Icons/SocialMedia/instagram.png"
+                            alt="Icone do Instagram">
                     </a></li>
             </ul>
         </section>
@@ -105,8 +118,72 @@
         <section class="section_main" id="Sobre">
             <p class="underdesign">Sobre</p>
             <h2 class="subtitulo">Sobre</h2>
-            <img class="sobre_perfil" src="assets/Sobre-Foto.png" alt="Foto de Perfil Redonda">
-            <p class="textos">Experiência em fornecer suporte técnico abrangente para colaboradores internos e pontos
+            <img loading="lazy" class="sobre_perfil" src="assets/Sobre-Foto.png" alt="Foto de Perfil Redonda">
+            <!-- TODO CRIAR E ADICIONAR SOBRE MIM -->
+
+            <button class="btns">
+                <a target="_blank"
+                    href="https://docs.google.com/document/d/1AWn7t9MbtsbpKbuTZ3ytS8ZlQCJxRULR/edit">Resume &gt;&gt;</a>
+            </button>
+        </section>
+
+        <!-- SKILLS -->
+
+        <section class="section_main_laranja" id="Skills">
+            <p class="underdesign">Skills</p>
+            <h2 class="subtitulo">Skills</h2>
+
+            <div class="skills">
+                <img loading="lazy" class="skills_logos" src="assets/Icons/Skills/html.png" alt="HTML Logo">
+                <img loading="lazy" class="skills_logos" src="assets/Icons/Skills/css-3.png" alt="CSS Logo">
+                <img loading="lazy" class="skills_logos" src="assets/Icons/Skills/js.png" alt="Javascript Logo">
+                <img loading="lazy" class="skills_logos" src="assets/Icons/Skills/git.png" alt="GIT Logo">
+                <img loading="lazy" class="skills_logos" src="assets/Icons/Skills/photoshop.png" alt="Photoshop Logo">
+                <img loading="lazy" class="skills_logos" src="assets/Icons/Skills/figma.png" alt="Figma Logo">
+                <img loading="lazy" class="skills_logos" src="assets/Icons/Skills/node.png" alt="Node Logo">
+            </div>
+
+            <p class="underdesign" id="desenvolvendo">Desenvolvendo</p>
+            <h2 class="subtitulo">Desenvolvendo</h2>
+
+            <div class="skills">
+                <img loading="lazy" class="skills_logos" src="assets/Icons/Skills/typescript.png" alt="TypeScript Logo">
+                <img loading="lazy" class="skills_logos" src="assets/Icons/Skills/cloud.png" alt="Google Cloud Logo">
+                <img loading="lazy" class="skills_logos" src="assets/Icons/Skills/mysql.png" alt="MySQL Logo">
+            </div>
+
+
+        </section>
+
+        <!-- PROJETOS -->
+        <section class="section_main" id="Projetos">
+            <p class="underdesign">Projetos</p>
+            <h2 class="subtitulo">Projetos</h2>
+            <button class="btns">
+                <!-- TODO PREVIEW DOS MELHORES PROJETOS CRIADOS -->
+                <a target="_blank" href="">Mais &gt;&gt;</a>
+                <!-- TODO CRIAR TELA COM MAIS DETALHES SOBRE PROJETOS -->
+            </button>
+        </section>
+
+        <!-- EXPERIENCIA -->
+        <section class="section_main_laranja" id="Experiencias">
+            <p class="underdesign">Experiencia</p>
+            <h2 class="subtitulo">Experiencia</h2>
+
+
+
+            <picture class="exp_logos">
+
+                <img loading="lazy" id="exp_wet" src="assets/WET.png" alt="Logo WetnWild">
+
+            </picture>
+
+
+
+            <!-- TODO LOGO BRANCO DOS LUGARES -->
+            <p class="textos">2019 - 2023
+                Experiência em fornecer suporte técnico abrangente para colaboradores internos e pontos
                 de vendas (PDVs) em operação em um parque aquático, tanto de forma remota quanto presencial.
 
                 Especializo-me em resolver uma variedade de demandas, incluindo:</p>
@@ -146,52 +223,13 @@
             <p class="textos">Além de demandas pontuais relacionadas à infraestrutura e desenvolvimento de software na
                 parte de
                 Front-end com JavaScript..</p>
-
-            <button class="btns">
-                <a target="_blank"
-                    href="https://docs.google.com/document/d/1AWn7t9MbtsbpKbuTZ3ytS8ZlQCJxRULR/edit">Resume &gt;&gt;</a>
-            </button>
-        </section>
-
-        <!-- SKILLS -->
-
-        <section class="section_main_laranja" id="Skills">
-            <p class="underdesign">Skills</p>
-            <h2 class="subtitulo">Skills</h2>
-
-            <div class="skills">
-                <img class="skills_logos" src="assets/Icons/Skills/html.png" alt="HTML Logo">
-                <img class="skills_logos" src="assets/Icons/Skills/css-3.png" alt="CSS Logo">
-                <img class="skills_logos" src="assets/Icons/Skills/js.png" alt="Javascript Logo">
-                <img class="skills_logos" src="assets/Icons/Skills/git.png" alt="GIT Logo">
-                <img class="skills_logos" src="assets/Icons/Skills/figma.png" alt="Figma Logo">
-                <img class="skills_logos" src="assets/Icons/Skills/photoshop.png" alt="Photoshop Logo">
-            </div>
-
-        </section>
-
-        <!-- PROJETOS -->
-        <section class="section_main" id="Projetos">
-            <p class="underdesign">Projetos</p>
-            <h2 class="subtitulo">Projetos</h2>
-            <button class="btns">
-                <a target="_blank" href="https://app.netlify.com/teams/igornatalino/overview">Mais &gt;&gt;</a>
-            </button>
-        </section>
-
-        <!-- EXPERIENCIA -->
-        <section class="section_main_laranja" id="Experiencias">
-            <p class="underdesign">Experiencia</p>
-            <h2 class="subtitulo">Experiencia</h2>
-            <img class="exp_logos" id="exp_wet" src="assets/WET.png" alt="Logo WetnWild">
-            <p class="textos">
-                2019 - 2023
-                Nulla ultricies lorem facilisis ligula malesuada, ut laoreet dolor convallis.
-                Maecenas faucibus quam eget maximus auctor.
-                Donec vestibulum velit vel diam convallis, non dignissim erat maximus.
-                Sed vitae dui eu dui posuere bibendum sit amet vitae dolor.
             </p>
-            <img class="exp_logos" id="exp_master" src="assets/Logo M.png" alt="Logo Master Contabilidade">
+
+            <picture class="exp_logos">
+
+                <img loading="lazy" id="exp_master" src="assets/Logo M.png" alt="Logo Master Contabilidade">
+            </picture>
+
             <p class="textos">
                 2013 - 2021
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit.
@@ -206,20 +244,23 @@
             <h2 class="subtitulo">Contato</h2>
 
             <ul class="icones_contatos">
-                <li class="icones_contatos_items"><img src="assets/Icons/SocialMedia/github.png" alt="Icone do Github">
-                    <a target="_blank" class="contatos_links"
+                <li class="icones_contatos_items"><img class="icones_social" loading="lazy"
+                        src="assets/Icons/SocialMedia/github.png" alt="Icone do Github">
+                    <a target="_blank" class="contatos_links textos"
                         href="https://github.com/IgorNatalino">github.com/IgorNatalino</a>
                 </li>
-                <li class="icones_contatos_items"><img src="assets/Icons/SocialMedia/gmail.png" alt="Icone de Email"><a
-                        target="_blank" class="contatos_links" href="">Igornatalino@gmail.com</a>
+                <li class="icones_contatos_items"><img class="icones_social" loading="lazy"
+                        src="assets/Icons/SocialMedia/gmail.png" alt="Icone de Email"><a target="_blank"
+                        class="contatos_links textos" href="">Igornatalino@gmail.com</a>
                 </li>
-                <li class="icones_contatos_items"><img src="assets/Icons/SocialMedia/linkedin.png"
-                        alt="Icone do Linkedin"><a target="_blank" class="contatos_links"
+                <li class="icones_contatos_items"><img class="icones_social" loading="lazy"
+                        src="assets/Icons/SocialMedia/linkedin.png" alt="Icone do Linkedin"><a target="_blank"
+                        class="contatos_links textos"
                         href="https://www.linkedin.com/in/igornatalino/">linkedin.com/in/igornatalino/</a>
                 </li>
-                <li class="icones_contatos_items"><img src="assets/Icons/SocialMedia/instagram.png"
-                        alt="Icone do Instagram"><a target="_blank" class="contatos_links"
-                        href="https://www.instagram.com/_natalino/">@_Natalino</a>
+                <li class="icones_contatos_items"><img class="icones_social" loading="lazy" loading="lazY"
+                        src="assets/Icons/SocialMedia/instagram.png" alt="Icone do Instagram"><a target="_blank"
+                        class="contatos_links textos" href="https://www.instagram.com/_natalino/">@_Natalino</a>
                 </li>
             </ul>
 
@@ -228,9 +269,6 @@
             <p>&lt;/Agradeço a Visita&gt;</p>
         </footer>
     </main>
-
-
-
 
 </body>
 

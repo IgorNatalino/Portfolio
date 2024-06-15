@@ -37,12 +37,16 @@
 	font-weight: bold;
 }
 
-.menu_lista_itens,
 .menu_lista_titulo,
 .menu_lista_rodape,
 .lista_itens {
 	display: flex;
 	justify-content: space-between;
+	padding: 18px 24px;
+}
+
+.menu_lista_link {
+	display: block;
 	padding: 18px 24px;
 }
 
@@ -61,14 +65,69 @@
 	color: var(--texto-secundario);
 }
 
-.dark_input {
-	align-self: center;
+/* INPUT DARK MODE */
+
+/* The switch - the box around the slider */
+.switch,
+.switch_desk {
+	font-size: 17px;
+	position: relative;
+	display: inline-block;
+	width: 52px;
+	height: 25px;
+}
+
+/* Hide default HTML checkbox */
+.switch input,
+.switch_desk input {
+	opacity: 0;
+	width: 0;
+	height: 0;
+}
+
+/* The slider */
+.slider,
+.slider_desk {
+	position: absolute;
+	cursor: pointer;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background-color: var(--switch-input);
+	transition: 0.5s;
+	border-radius: 30px;
+}
+
+.slider:before,
+.slider_desk:before {
+	position: absolute;
+	content: '';
+	height: 16px;
+	width: 16px;
+	border-radius: 50%;
+	left: 10%;
+	bottom: 20%;
+	box-shadow: inset 8px -4px 0px 0px var(--branco);
+	background: var(--switch-input);
+	transition: 0.5s;
+}
+
+input:checked + .slider,
+input:checked + .slider_desk {
+	background-color: var(--branco);
+}
+
+input:checked + .slider:before,
+input:checked + .slider_desk:before {
+	transform: translateX(160%);
+	box-shadow: inset 15px -4px 0px 15px var(--azul-dark);
 }
 
 @media (min-width: 480px) {
 	/* smartphones, Android phones, landscape iPhone */
 	.cabecalho_lista_desk,
-	.dark_input_desk {
+	.switch_desk {
 		display: none;
 	}
 }
@@ -83,16 +142,18 @@
 		display: none;
 	}
 
-	.cabecalho_lista_desk,
-	.dark_input_desk {
+	.cabecalho_lista_desk {
 		display: flex;
 	}
 
-	.dark_input_desk {
-		padding: 0 24px;
+	.switch_desk {
+		display: inline-block;
 	}
 }
 
 @media (min-width: 1281px) {
 	/* hi-res laptops and desktops */
+	.cabecalho {
+		padding: 0 80px;
+	}
 }

@@ -38,18 +38,18 @@ function VoltoAoTopo() {
 // Dark Mode
 
 const html = document.querySelector('html');
-const temaBotao = document.querySelector('.dark_input');
+const temaBotaoMobile = document.querySelector('.slider');
+const temaBotaoDesk = document.querySelector('.slider_desk');
 
 function obterTemaAtual() {
-	return html.getAttribute('data-mode');
+	return html.getAttribute('data-theme');
 }
 
 function trocaTema(tema) {
-	html.setAttribute('data-mode', tema);
-	/* banner.setAttribute('src', `/imagens/${contexto}.png`); */ // TODO IMGS DARK MODE
+	html.setAttribute('data-theme', tema);
 }
 
-temaBotao.addEventListener('click', () => {
+function ClickTrocaTema() {
 	const temaAtual = obterTemaAtual();
 
 	if (temaAtual === 'light') {
@@ -57,4 +57,7 @@ temaBotao.addEventListener('click', () => {
 	} else if (temaAtual === 'dark') {
 		trocaTema('light');
 	}
-});
+}
+
+temaBotaoMobile.addEventListener('click', ClickTrocaTema);
+temaBotaoDesk.addEventListener('click', ClickTrocaTema);
