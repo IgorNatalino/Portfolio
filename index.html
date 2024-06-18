@@ -18,7 +18,6 @@
 <body>
     <header class="cabecalho">
         <img loading="lazy" class="cabecalho_logo" src="assets/Foxys-ICO.png" alt="Logo de Raposa Igor Natalino">
-        <!-- TODO CRIAR E ADICIONAR LOGO COM NOME COMPLETO -->
 
         <svg class="cabecalho_menu" alt="Menu Hamburguer" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 10"
             stroke="#eee" stroke-width=".6" fill="rgba(0,0,0,0)" stroke-linecap="round" style="cursor: pointer">
@@ -38,6 +37,8 @@
                 <animate dur="0.001s" attributeName="width" values="0;10" fill="freeze" begin="reverse.begin" />
             </rect>
         </svg>
+
+        <!-- TODO DEPLOY - OUTLINE LARANJA NO MENU ABERTO -->
 
         <ul class="cabecalho_menu_lista hidden">
             <li class="menu_lista_titulo">Categorias</li>
@@ -118,9 +119,41 @@
         <section class="section_main" id="Sobre">
             <p class="underdesign">Sobre</p>
             <h2 class="subtitulo">Sobre</h2>
-            <img loading="lazy" class="sobre_perfil" src="assets/Sobre-Foto.png" alt="Foto de Perfil Redonda">
-            <!-- TODO CRIAR E ADICIONAR SOBRE MIM -->
+            <div class="section_sobre">
+                <img loading="lazy" class="sobre_perfil" src="assets/Sobre-Foto.png" alt="Foto de Perfil Redonda">
+                <!-- TODO DEPLOY - TRABALHAR NO SOBRE MIM -->
+                <p class="textos">
+                    Formado em Gestão Financeira, pós-graduado em Análise e Desenvolvimento de Sistemas e Engenharia de
+                    Software.
+                    Me apaixonei por programação a partir da utilização avançada do Excel, com a aplicação de fórmulas e
+                    funções complexas, além de possuir um interesse em design.
+                    Estou próximo de completar 1 ano de experiência na área de TI como suporte técnico, em breve
+                    pretendo
+                    ingressar na área de programação e desenvolvimento e atuar como desenvolvedor Front-End, que é o meu
+                    foco de aprendizado.
+                    Durante meus estudos e carreira desenvolvi proficiência em Front-End com habilidades técnicas em
+                    HTML5,
+                    CSS3, JavaScript, NodeJS, Angular, Design Responsivo, Git e Github, consumo de API’s, Banco de
+                    Dados,
+                    Redes, dentre outras atividades relacionadas. Também desenvolvi experiência em fornecer suporte
+                    técnico
+                    abrangente para colaboradores internos e pontos de vendas (PDVs) operacionais em um parque aquático,
+                    presencialmente e remotamente.
+                    Sempre muito curioso e interessado por tecnologia, pretendo me desenvolver cada vez mais e ampliar
+                    conhecimentos na área.
+                    As experiências anteriores que obtive como Líder de segurança e Auxiliar contábil me proporcionaram
+                    o
+                    desenvolvimento de diversas soft skills valiosas, como, liderança, comunicação, organização, atenção
+                    aos
+                    detalhes, resolução de problemas e trabalho em equipe. Essas habilidades complementam minha formação
+                    técnica e me preparam para enfrentar os desafios da área de desenvolvimento com uma abordagem
+                    holística
+                    e colaborativa.
+                    Estou determinado em fazer disso tudo uma jornada de sucesso e muito aprendizado, agregando cada vez
+                    mais os meus conhecimentos.
+                </p>
 
+            </div>
             <button class="btns">
                 <a target="_blank"
                     href="https://docs.google.com/document/d/1AWn7t9MbtsbpKbuTZ3ytS8ZlQCJxRULR/edit">Resume &gt;&gt;</a>
@@ -137,10 +170,12 @@
                 <img loading="lazy" class="skills_logos" src="assets/Icons/Skills/html.png" alt="HTML Logo">
                 <img loading="lazy" class="skills_logos" src="assets/Icons/Skills/css-3.png" alt="CSS Logo">
                 <img loading="lazy" class="skills_logos" src="assets/Icons/Skills/js.png" alt="Javascript Logo">
+                <img loading="lazy" class="skills_logos" src="assets/Icons/Skills/sass.png" alt="Sass Logo">
                 <img loading="lazy" class="skills_logos" src="assets/Icons/Skills/git.png" alt="GIT Logo">
                 <img loading="lazy" class="skills_logos" src="assets/Icons/Skills/photoshop.png" alt="Photoshop Logo">
                 <img loading="lazy" class="skills_logos" src="assets/Icons/Skills/figma.png" alt="Figma Logo">
                 <img loading="lazy" class="skills_logos" src="assets/Icons/Skills/node.png" alt="Node Logo">
+                <img loading="lazy" class="skills_logos" src="assets/Icons/Skills/tailwind.png" alt="Tailwind Logo">
             </div>
 
             <p class="underdesign" id="desenvolvendo">Desenvolvendo</p>
@@ -150,6 +185,7 @@
                 <img loading="lazy" class="skills_logos" src="assets/Icons/Skills/typescript.png" alt="TypeScript Logo">
                 <img loading="lazy" class="skills_logos" src="assets/Icons/Skills/cloud.png" alt="Google Cloud Logo">
                 <img loading="lazy" class="skills_logos" src="assets/Icons/Skills/mysql.png" alt="MySQL Logo">
+                <img loading="lazy" class="skills_logos" src="assets/Icons/Skills/angular.png" alt="Angular Logo">
             </div>
 
 
@@ -160,9 +196,9 @@
             <p class="underdesign">Projetos</p>
             <h2 class="subtitulo">Projetos</h2>
             <button class="btns">
-                <!-- TODO PREVIEW DOS MELHORES PROJETOS CRIADOS -->
+                <!-- TODO DEPLOY - PREVIEW DOS MELHORES PROJETOS CRIADOS -->
                 <a target="_blank" href="">Mais &gt;&gt;</a>
-                <!-- TODO CRIAR TELA COM MAIS DETALHES SOBRE PROJETOS -->
+                <!-- TODO V2 - CRIAR TELA COM MAIS DETALHES SOBRE PROJETOS -->
             </button>
         </section>
 
@@ -171,17 +207,11 @@
             <p class="underdesign">Experiencia</p>
             <h2 class="subtitulo">Experiencia</h2>
 
-
-
             <picture class="exp_logos">
-
                 <img loading="lazy" id="exp_wet" src="assets/WET.png" alt="Logo WetnWild">
-
             </picture>
-
-
-
-            <!-- TODO LOGO BRANCO DOS LUGARES -->
+            <!-- TODO DEPLOY - CRIAR OUTLINE LOGOS -->
+            <!-- TODO V2 - LOGO BRANCO DOS LUGARES -->
             <p class="textos">2019 - 2023
                 Experiência em fornecer suporte técnico abrangente para colaboradores internos e pontos
                 de vendas (PDVs) em operação em um parque aquático, tanto de forma remota quanto presencial.
@@ -190,7 +220,8 @@
 
             <ul class="textos">
                 <li class="lista_sobre">
-                    - Instalação, implantação e manutenção de hardware (desktops, notebooks e impressoras) e periféricos
+                    - Instalação, implantação e manutenção de hardware (desktops, notebooks e impressoras) e
+                    periféricos
                     de
                     computador.
                 </li>
@@ -199,7 +230,8 @@
                 </li>
 
                 <li class="lista_sobre">
-                    - Suporte abrangente a aplicativos, softwares e sistemas de PDV e ERP utilizados pela empresa (VOLPE
+                    - Suporte abrangente a aplicativos, softwares e sistemas de PDV e ERP utilizados pela empresa
+                    (VOLPE
                     e
                     VIXEN).
                 </li>
@@ -210,7 +242,8 @@
                     funcionamento de servidores e aplicações utilizadas no parque, além das vendas.
                 </li>
                 <li class="lista_sobre">
-                    - Administração de ativos (Switches, SATs, periféricos, softwares, etc.) e controle de pagamentos
+                    - Administração de ativos (Switches, SATs, periféricos, softwares, etc.) e controle de
+                    pagamentos
                     relacionados à área de TI.
                 </li>
                 <li class="lista_sobre">
@@ -220,13 +253,12 @@
                 </li>
             </ul>
 
-            <p class="textos">Além de demandas pontuais relacionadas à infraestrutura e desenvolvimento de software na
+            <p class="textos">Além de demandas pontuais relacionadas à infraestrutura e desenvolvimento de software
+                na
                 parte de
                 Front-end com JavaScript..</p>
-            </p>
 
             <picture class="exp_logos">
-
                 <img loading="lazy" id="exp_master" src="assets/Logo M.png" alt="Logo Master Contabilidade">
             </picture>
 
