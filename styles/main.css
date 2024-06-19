@@ -56,7 +56,7 @@ html[data-theme='dark'] .apresentacao_subtitulo {
 .section_main {
 	display: flex;
 	flex-direction: column;
-	padding: 0 40px 40px;
+	padding: 0 25px 40px;
 }
 
 .section_sobre {
@@ -73,7 +73,7 @@ html[data-theme='dark'] .apresentacao_subtitulo {
 .section_main_laranja {
 	display: flex;
 	flex-direction: column;
-	padding: 0 40px 40px;
+	padding: 0 25px 40px;
 	background-color: var(--background-destaque);
 }
 
@@ -94,7 +94,8 @@ html[data-theme='dark'] .subtitulo {
 	color: var(--texto-principal);
 	line-height: 145%;
 	padding: 10px 0;
-	text-align: center;
+	text-align: justify;
+	font-size: 1rem;
 }
 
 html[data-theme='dark'] .textos {
@@ -138,12 +139,12 @@ html[data-theme='dark'] .textos {
 
 #exp_wet {
 	width: 80%;
-	max-width: 500px;
+	max-width: 400px;
 }
 
 #exp_master {
 	width: 90%;
-	max-width: 450px;
+	max-width: 380px;
 }
 
 /* CONTATOS */
