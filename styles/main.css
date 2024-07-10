@@ -209,6 +209,21 @@ html[data-theme='dark'] .icones_social {
 @media (min-width: 1281px) {
 	/* hi-res laptops and desktops */
 	.apresentacao_container {
+		padding: 25px 200px 0;
+	}
+
+	.section_main {
+		padding: 0 200px 40px;
+	}
+
+	.section_main_laranja {
+		padding: 0 200px 40px;
+	}
+}
+
+@media (min-width: 1500px) {
+	/* hi-res laptops and desktops */
+	.apresentacao_container {
 		padding: 25px 300px 0;
 	}
 

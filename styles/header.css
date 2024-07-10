@@ -155,6 +155,12 @@ input:checked + .slider_desk:before {
 @media (min-width: 1281px) {
 	/* hi-res laptops and desktops */
 	.cabecalho {
+		padding: 0 200px;
+	}
+}
+
+@media (min-width: 1500px) {
+	.cabecalho {
 		padding: 0 300px;
 	}
 }
