@@ -148,6 +148,12 @@ html[data-theme='dark'] .textos {
 }
 
 /* CONTATOS */
+.icones_contatos {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+}
+
 .contatos_links {
 	color: var(--texto-principal);
 	padding: 0 10px;
