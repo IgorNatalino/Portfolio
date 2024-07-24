@@ -30,6 +30,7 @@
 	width: 62%;
 	box-shadow: var(--sombra);
 	padding: 15px 0;
+	z-index: 1;
 }
 
 .cabecalho_lista_desk,
