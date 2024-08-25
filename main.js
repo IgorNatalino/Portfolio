@@ -36,10 +36,19 @@ function VoltoAoTopo() {
 }
 
 // Dark Mode
-
 const html = document.querySelector('html');
-const temaBotaoMobile = document.querySelector('.slider');
-const temaBotaoDesk = document.querySelector('.slider_desk');
+const temaBotaoMobile = document.querySelector('.switch_desk input');
+const temaBotaoDesk = document.querySelector('.switch_desk input');
+
+function inicializaTema() {
+	const prefersDarkColorScheme = () => window && window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+	if (prefersDarkColorScheme) {
+		temaBotaoMobile.checked = true;
+		temaBotaoDesk.checked = true;
+		trocaTema('dark');
+	}
+}
 
 function obterTemaAtual() {
 	return html.getAttribute('data-theme');
@@ -58,6 +67,8 @@ function ClickTrocaTema() {
 		trocaTema('light');
 	}
 }
+
+inicializaTema();
 
 temaBotaoMobile.addEventListener('click', ClickTrocaTema);
 temaBotaoDesk.addEventListener('click', ClickTrocaTema);
