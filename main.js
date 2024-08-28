@@ -37,7 +37,7 @@ function VoltoAoTopo() {
 
 // Dark Mode
 const html = document.querySelector('html');
-const temaBotaoMobile = document.querySelector('.switch_desk input');
+const temaBotaoMobile = document.querySelector('.switch input');
 const temaBotaoDesk = document.querySelector('.switch_desk input');
 
 function inicializaTema() {
