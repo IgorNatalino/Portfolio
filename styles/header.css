@@ -15,7 +15,7 @@
 	stroke: var(--cor-destaque);
 	width: 50px;
 	padding: 0 24px;
-	z-index: 1;
+	z-index: 2;
 }
 
 .hidden {

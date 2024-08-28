@@ -28,8 +28,36 @@
 	transform: scale(0.98);
 }
 
+.projetos_titulo {
+	text-align: center;
+	font-weight: 700;
+	padding: 2% 0;
+}
+
 .projetos_descricao {
-	margin: 1rem 0 0 0;
+	padding: 2% 0;
+	text-align: center;
+	font-size: 1rem;
+}
+
+.projetos_display {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: space-evenly;
+	align-content: center;
+	gap: 20px;
+}
+
+.projetos_skills {
+	display: flex;
+	align-items: center;
+	justify-content: space-evenly;
+	padding: 2% 0;
+}
+
+.projetos_skills_img {
+	width: 40px;
 }
 
 .projetos_card_btns {
