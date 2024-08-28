@@ -16,6 +16,14 @@
 	border-radius: 20px;
 }
 
+html[data-theme='light'] .logos_dark {
+	display: none;
+}
+
+html[data-theme='dark'] .logos_light {
+	display: none;
+}
+
 #desenvolvendo {
 	padding-top: 40px;
 }
