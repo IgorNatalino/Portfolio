@@ -81,8 +81,8 @@ const projetos = [
 			},
 		],
 		links: {
-			site: `https://signformvalidation.netlify.app/`,
-			code: `https://github.com/IgorNatalino/Signup-form`,
+			site: `https://in-qrcode.netlify.app/`,
+			code: `https://github.com/IgorNatalino/`,
 		},
 	},
 ];
