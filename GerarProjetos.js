@@ -1,5 +1,5 @@
 function gerarCards() {
-	const container = document.querySelector('.projetos_display'); // Selecione o container onde os cards serão adicionados
+	const container = document.querySelector('.projetos_display');
 
 	projetos.forEach((projeto) => {
 		// Criar o card
@@ -46,6 +46,7 @@ function gerarCards() {
 		const siteLink = document.createElement('a');
 		siteLink.href = projeto.links.site;
 		siteLink.textContent = 'Site';
+		siteLink.target = '_blank';
 		siteBtn.appendChild(siteLink);
 		btnsDiv.appendChild(siteBtn);
 		const codeBtn = document.createElement('button');
