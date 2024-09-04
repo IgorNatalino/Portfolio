@@ -4,8 +4,10 @@
 }
 
 .projetos_card {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
 	width: 300px;
-	align-self: center;
 	background: white;
 	padding: 0.5rem;
 	border-radius: 6px;
