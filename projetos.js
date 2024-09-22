@@ -85,4 +85,19 @@ const projetos = [
 			code: `https://github.com/IgorNatalino/`,
 		},
 	},
+	{
+		imagem: 'assets/projetos/portfolio_preview.png',
+		titulo: 'Figma Design',
+		descricao: 'Design de Portfolio desenvolvido em Figma',
+		tecnologias: [
+			{
+				nome: 'Figma',
+				icone: gerarIcone('Figma'),
+			},
+		],
+		links: {
+			site: `#home`,
+			code: `https://www.figma.com/design/NPmFMi5maAckHWOeL3ed59/Portfolio-Design?node-id=37-94&node-type=canvas&t=LUdPG8QjVWq2BN7D-0`,
+		},
+	},
 ];
