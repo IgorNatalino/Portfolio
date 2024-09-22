@@ -21,6 +21,29 @@ function gerarIcone(nome) {
 
 const projetos = [
 	{
+		imagem: 'assets/projetos/calculator_preview.png',
+		titulo: 'Calculadora com JavaScript',
+		descricao: 'Calculadora feita em JavaScript com 3 Temas de cores',
+		tecnologias: [
+			{
+				nome: 'HTML5',
+				icone: gerarIcone('HTML5'),
+			},
+			{
+				nome: 'CSS3',
+				icone: gerarIcone('CSS3'),
+			},
+			{
+				nome: 'JavaScript',
+				icone: gerarIcone('JavaScript'),
+			},
+		],
+		links: {
+			site: `https://reallysimplecalculator.netlify.app/`,
+			code: `https://github.com/IgorNatalino/Calculadora`,
+		},
+	},
+	{
 		imagem: 'assets/projetos/socialmedialinks_preview.png',
 		titulo: 'Links de Social Media',
 		descricao: 'Projeto agregador de Links, desenvolvido com foco no Tailwind',
