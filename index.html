@@ -112,8 +112,22 @@
                     <h3 class="apresentacao_subtitulo">Suporte TI & <br> Desenvolvedor Front-end</h3>
                 </div>
                 <div class="apresentacao_images">
-                    <img loading="lazy" class="apresentacao_doodle cssanimation hu__hu__" src="assets/doodle.png"
-                        alt="Bolha Laranja de Ilustração">
+                    <!-- Duas poses empilhadas: repouso (trabalhando) e hover
+                         (olhando para frente). As duas foram cortadas no mesmo
+                         enquadramento, senao a troca pularia. Sem loading=lazy:
+                         esta e a imagem de LCP da pagina. -->
+                    <div class="doodle cssanimation hu__hu__">
+                        <picture class="doodle_camada">
+                            <source srcset="assets/doodle/igor-trabalhando.webp" type="image/webp">
+                            <img src="assets/doodle/igor-trabalhando.png" width="800" height="758"
+                                alt="Ilustração do Igor de camisa polo, trabalhando no notebook">
+                        </picture>
+                        <picture class="doodle_camada doodle_camada--hover" aria-hidden="true">
+                            <source srcset="assets/doodle/igor-sorrindo.webp" type="image/webp">
+                            <img src="assets/doodle/igor-sorrindo.png" width="800" height="758" alt=""
+                                fetchpriority="low">
+                        </picture>
+                    </div>
                 </div>
             </div>
 

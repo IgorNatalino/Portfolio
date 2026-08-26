@@ -8,9 +8,53 @@
 	color: var(--texto-principal);
 }
 
-.apresentacao_doodle {
-	width: 400px;
-	padding: 20px 0 0 0;
+/* DOODLE */
+
+/* clamp em vez dos 400px fixos de antes: num telefone de 360px a imagem
+   estourava a viewport e so nao aparecia por causa do overflow-x: hidden
+   no body. O aspect-ratio reserva a altura antes de a imagem chegar. */
+.doodle {
+	position: relative;
+	width: clamp(260px, 78vw, 400px);
+	aspect-ratio: 800 / 758;
+	margin: 20px 0 0;
+}
+
+.doodle_camada {
+	position: absolute;
+	inset: 0;
+	display: block;
+}
+
+.doodle_camada img {
+	display: block;
+	width: 100%;
+	height: 100%;
+}
+
+/* A camada de cima so existe no hover. A de baixo fica opaca durante toda
+   a transicao — se as duas desbotassem juntas, o fundo da pagina
+   apareceria por dentro do blob no meio do caminho. */
+.doodle_camada--hover {
+	opacity: 0;
+}
+
+/* Fora de @media (hover: hover) nao ha o que animar: em touch a segunda
+   pose nunca aparece. */
+@media (hover: hover) {
+	.doodle_camada--hover {
+		transition: opacity 0.25s ease;
+	}
+
+	.doodle:hover .doodle_camada--hover {
+		opacity: 1;
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.doodle_camada--hover {
+		transition: none;
+	}
 }
 
 .apresentacao_titulo {
