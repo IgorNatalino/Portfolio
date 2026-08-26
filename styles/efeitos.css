@@ -1,0 +1,90 @@
+/* EFEITOS
+   Os tres unicos efeitos que o portfolio usava, extraidos de hover.css
+   (580 classes) e cssanimation.css (310 seletores). As bibliotecas inteiras
+   somavam 7.497 linhas para estes tres.
+
+   Duas mudancas em relacao ao original: os prefixos -webkit- sairam, porque
+   transform e transition dispensam prefixo desde 2016; e :hover ficou
+   separado de :focus/:active, porque em touch o :hover fica preso depois do
+   toque, enquanto o foco de teclado tem de continuar valendo. */
+
+/* Flutuar no hover — usado nos icones sociais, de contato e de skills.
+   O display: inline-block do original ficou de fora: o layout ja resolve
+   isso pelo flex do container, e forcar aqui quebrava o alinhamento. */
+.hvr-float {
+	vertical-align: middle;
+	transform: perspective(1px) translateZ(0);
+	box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+	transition-duration: 0.3s;
+	transition-property: transform;
+	transition-timing-function: ease-out;
+}
+
+.hvr-float:focus,
+.hvr-float:active {
+	transform: translateY(-8px);
+}
+
+@media (hover: hover) {
+	.hvr-float:hover {
+		transform: translateY(-8px);
+	}
+}
+
+/* Sublinhado crescendo da esquerda — menu do desktop. */
+.hvr-underline-from-left {
+	display: inline-block;
+	vertical-align: middle;
+	transform: perspective(1px) translateZ(0);
+	box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+	position: relative;
+	overflow: hidden;
+}
+
+.hvr-underline-from-left:before {
+	content: '';
+	position: absolute;
+	z-index: -1;
+	left: 0;
+	right: 100%;
+	bottom: 0;
+	background: var(--texto-principal);
+	height: 1.8px;
+	transition-property: right;
+	transition-duration: 0.4s;
+	transition-timing-function: ease-out;
+}
+
+.hvr-underline-from-left:focus:before,
+.hvr-underline-from-left:active:before {
+	right: 0;
+}
+
+@media (hover: hover) {
+	.hvr-underline-from-left:hover:before {
+		right: 0;
+	}
+}
+
+/* Flutuar continuo — o doodle da apresentacao. */
+.hu__hu__ {
+	animation: hu__hu__ infinite 10s ease-in-out;
+}
+
+@keyframes hu__hu__ {
+	50% {
+		transform: translateY(30px);
+	}
+}
+
+/* Animacao infinita e exatamente o caso que prefers-reduced-motion cobre. */
+@media (prefers-reduced-motion: reduce) {
+	.hu__hu__ {
+		animation: none;
+	}
+
+	.hvr-float,
+	.hvr-underline-from-left:before {
+		transition: none;
+	}
+}

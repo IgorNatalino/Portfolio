@@ -1,5 +1,6 @@
 @import url(header.css);
 @import url(icones.css);
+@import url(efeitos.css);
 @import url(main.css);
 @import url(projetos.css);
 @import url(skills.css);
@@ -80,14 +81,5 @@ footer {
 	transition: 0.5s;
 }
 
-@media (min-width: 480px) {
-	/* smartphones, Android phones, landscape iPhone */
-}
 
-@media (min-width: 1023px) {
-	/* big landscape tablets, laptops, and desktops */
-}
 
-@media (min-width: 1281px) {
-	/* hi-res laptops and desktops */
-}
