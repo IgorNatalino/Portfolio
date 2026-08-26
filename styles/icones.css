@@ -1,0 +1,28 @@
+/* SPRITE DE ICONES */
+
+/* Fora do fluxo em vez de display:none — e o padrao seguro para sprite
+   inline de <symbol>. */
+.sprite_icones {
+	position: absolute;
+	width: 0;
+	height: 0;
+	overflow: hidden;
+}
+
+/* O tamanho vem do CSS, nao de width="24px" no markup: assim acompanha a
+   fonte-raiz de quem aumenta o zoom do sistema. A cor vem do token, o que
+   dispensa o filter: invert() que existia so para forcar branco no dark. */
+.icones_social {
+	width: 1.5rem;
+	height: 1.5rem;
+	fill: currentColor;
+	color: var(--cor-destaque);
+}
+
+.icone_topo {
+	display: block;
+	width: 1.5625rem;
+	height: 1.5625rem;
+	fill: currentColor;
+	color: var(--branco);
+}
