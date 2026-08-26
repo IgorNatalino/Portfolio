@@ -137,12 +137,12 @@ html[data-theme='dark'] .textos {
 	margin: 20px 0;
 }
 
-#exp_wet {
+.exp_wet {
 	width: 80%;
 	max-width: 400px;
 }
 
-#exp_master {
+.exp_master {
 	width: 90%;
 	max-width: 380px;
 }
@@ -207,7 +207,7 @@ html[data-theme='dark'] .icones_social {
 		padding: 0 80px 40px;
 	}
 
-	#exp_wet {
+	.exp_wet {
 		width: 50%;
 	}
 }

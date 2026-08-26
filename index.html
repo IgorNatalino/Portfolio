@@ -61,11 +61,11 @@
         </ul>
 
         <ul class="cabecalho_lista_desk">
-            <li class="lista_itens"><a class="hvr-underline-from-left" href="#Sobre">Sobre</li></a>
-            <li class="lista_itens"><a class="hvr-underline-from-left" href="#Skills">Skills</li></a>
-            <li class="lista_itens"><a class="hvr-underline-from-left" href="#Projetos">Projetos</li></a>
-            <li class="lista_itens"><a class="hvr-underline-from-left" href="#Experiencias">Experiências</li></a>
-            <li class="lista_itens"><a class="hvr-underline-from-left" href="#Contato">Contato</li></a>
+            <li class="lista_itens"><a class="hvr-underline-from-left" href="#Sobre">Sobre</a></li>
+            <li class="lista_itens"><a class="hvr-underline-from-left" href="#Skills">Skills</a></li>
+            <li class="lista_itens"><a class="hvr-underline-from-left" href="#Projetos">Projetos</a></li>
+            <li class="lista_itens"><a class="hvr-underline-from-left" href="#Experiencias">Experiências</a></li>
+            <li class="lista_itens"><a class="hvr-underline-from-left" href="#Contato">Contato</a></li>
         </ul>
 
         <label class="switch_desk">
@@ -227,10 +227,8 @@
                 </article>
                 <!-- TODO V2 - MAIS SOBRE MIM (INSPIRAÇÃO - https://www.lauren-waller.com/about) -->
             </div>
-            <button class="btns">
-                <a target="_blank"
-                    href="https://drive.google.com/file/d/1PXxBi-udjADqjCfjJDRVJSrZcQ1iQwsj/view">Curriculo &gt;&gt;</a>
-            </button>
+            <a class="btns" target="_blank"
+                href="https://drive.google.com/file/d/1PXxBi-udjADqjCfjJDRVJSrZcQ1iQwsj/view">Curriculo &gt;&gt;</a>
         </section>
 
         <!-- SKILLS -->
@@ -305,7 +303,6 @@
             <p class="underdesign">Projetos</p>
             <h2 class="subtitulo">Projetos</h2>
             <div class="projetos_display"></div>
-            </div>
 
         </section>
 
@@ -315,8 +312,8 @@
             <h2 class="subtitulo">Experiencia</h2>
 
             <picture class="exp_logos">
-                <img loading="lazy" id="exp_wet" class="logos_light" src="assets/WET.png" alt="Logo WetnWild">
-                <img loading="lazy" id="exp_wet" class="logos_dark" src="assets/WET_dark.png"
+                <img loading="lazy" class="exp_logo exp_wet logos_light" src="assets/WET.png" alt="Logo WetnWild">
+                <img loading="lazy" class="exp_logo exp_wet logos_dark" src="assets/WET_dark.png"
                     alt="Logo WetnWild Branco">
             </picture>
             <p class="textos">2021 - 2024</p>
@@ -367,9 +364,9 @@
                 Front-end com JavaScript..</p>
 
             <picture class="exp_logos">
-                <img loading="lazy" id="exp_master" class="logos_light" src="assets/Logo M.png"
+                <img loading="lazy" class="exp_logo exp_master logos_light" src="assets/Logo M.png"
                     alt="Logo Master Contabilidade">
-                <img loading="lazy" id="exp_master" class="logos_dark" src="assets/Logo M_dark.png"
+                <img loading="lazy" class="exp_logo exp_master logos_dark" src="assets/Logo M_dark.png"
                     alt="Logo Master Contabilidade Branco">
             </picture>
 
@@ -490,10 +487,9 @@
         </footer>
     </main>
 
+    <script src="projetos.js"></script>
+    <script src="GerarProjetos.js"></script>
+    <script src="main.js"></script>
 </body>
-
-<script src='main.js'></script>
-<script src='GerarProjetos.js'></script>
-<script src='projetos.js'></script>
 
 </html>

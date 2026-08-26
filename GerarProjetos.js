@@ -1,3 +1,17 @@
+// Ancora estilizada de botao: <a> dentro de <button> e interativo dentro de
+// interativo, e o teclado nao alcanca o link.
+function criarBotao(texto, href, novaAba) {
+	const link = document.createElement('a');
+	link.classList.add('projetos_card_btn');
+	link.href = href;
+	link.textContent = texto;
+	if (novaAba) {
+		link.target = '_blank';
+		link.rel = 'noopener';
+	}
+	return link;
+}
+
 function gerarCards() {
 	const container = document.querySelector('.projetos_display');
 
@@ -41,21 +55,8 @@ function gerarCards() {
 		// Adicionar botões
 		const btnsDiv = document.createElement('div');
 		btnsDiv.classList.add('projetos_card_btns');
-		const siteBtn = document.createElement('button');
-		siteBtn.classList.add('projetos_card_btn');
-		const siteLink = document.createElement('a');
-		siteLink.href = projeto.links.site;
-		siteLink.textContent = 'Site';
-		siteLink.target = '_blank';
-		siteBtn.appendChild(siteLink);
-		btnsDiv.appendChild(siteBtn);
-		const codeBtn = document.createElement('button');
-		codeBtn.classList.add('projetos_card_btn');
-		const codeLink = document.createElement('a');
-		codeLink.href = projeto.links.code;
-		codeLink.textContent = 'Code';
-		codeBtn.appendChild(codeLink);
-		btnsDiv.appendChild(codeBtn);
+		btnsDiv.appendChild(criarBotao('Site', projeto.links.site, true));
+		btnsDiv.appendChild(criarBotao('Code', projeto.links.code, true));
 		card.appendChild(btnsDiv);
 
 		// Adicionar o card ao container
