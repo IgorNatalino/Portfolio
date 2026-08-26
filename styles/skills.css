@@ -7,13 +7,22 @@
 	gap: 26px;
 }
 
+/* clamp em vez de 60px fixo com um segundo valor cravado no breakpoint:
+   escala junto da viewport e continua acompanhando a fonte-raiz. */
 .skills_logos {
 	background-color: var(--skills-background);
-	width: 60px;
-	height: 60px;
+	width: clamp(3.25rem, 3rem + 1.5vw, 4.0625rem);
+	height: clamp(3.25rem, 3rem + 1.5vw, 4.0625rem);
 	object-fit: contain;
 	padding: 15px;
 	border-radius: 20px;
+	box-sizing: content-box;
+}
+
+/* MySQL e AWS entram pelo sprite, com a parte escura em currentColor: e o
+   que dispensa o arquivo -branco que existia so para o dark. */
+svg.skills_logos {
+	color: var(--texto-principal);
 }
 
 html[data-theme='light'] .logos_dark {
@@ -32,13 +41,6 @@ html[data-theme='dark'] .logos_light {
 	/* smartphones, Android phones, landscape iPhone */
 }
 
-@media (min-width: 1023px) {
-	/* big landscape tablets, laptops, and desktops */
-	.skills_logos {
-		width: 65px;
-		height: 65px;
-	}
-}
 
 @media (min-width: 1281px) {
 	/* hi-res laptops and desktops */

@@ -62,6 +62,12 @@
 	width: 40px;
 }
 
+/* Os dois que vem do sprite precisam da cor do tema para o currentColor. */
+svg.projetos_skills_img {
+	height: 40px;
+	color: var(--texto-principal);
+}
+
 .projetos_card_btns {
 	display: flex;
 	justify-content: center;

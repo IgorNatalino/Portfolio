@@ -1,3 +1,6 @@
+// Logo multicolorido continua como arquivo. MySQL e AWS entraram no sprite de
+// <symbol> porque a parte escura deles precisa seguir o tema — era isso que os
+// arquivos "-branco" resolviam duplicando. Referencia que começa com # e sprite.
 const icones = {
 	HTML5: 'assets/Icons/html-5-svgrepo-com.svg',
 	CSS3: 'assets/Icons/css-3-svgrepo-com.svg',
@@ -10,13 +13,24 @@ const icones = {
 	Tailwind: 'assets/Icons/tailwind-svgrepo-com.svg',
 	Wordpress: 'assets/Icons/wordpress-icon-logo-svgrepo-com.svg',
 	TypeScript: 'assets/Icons/typescript-svgrepo-com.svg',
-	MySQL: 'assets/Icons/mysql-svgrepo-com.svg',
+	MySQL: '#icone-mysql',
 	Angular: 'assets/Icons/angular-svgrepo-com.svg',
-	AWS: 'assets/Icons/aws-svgrepo-com.svg',
+	AWS: '#icone-aws',
 };
 
 function gerarIcone(nome) {
-	return `<img src="${icones[nome]}" loading="lazy" class="projetos_skills_img" alt="${nome} Logo">`;
+	const ref = icones[nome];
+
+	if (!ref) {
+		console.warn(`gerarIcone: nao existe icone para "${nome}"`);
+		return '';
+	}
+
+	if (ref.startsWith('#')) {
+		return `<svg class="projetos_skills_img" role="img"><title>${nome}</title><use href="${ref}" /></svg>`;
+	}
+
+	return `<img src="${ref}" loading="lazy" class="projetos_skills_img" alt="${nome} Logo">`;
 }
 
 const projetos = [
