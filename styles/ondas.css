@@ -1,0 +1,36 @@
+/* ONDAS DIVISORAS */
+
+/* Cada onda e pintada na cor da secao que vem DEPOIS dela, e fica sobre o
+   fundo da secao anterior. Como o fill vem de currentColor e a cor vem de
+   token, o divisor acompanha os dois temas sem um segundo arquivo.
+
+   preserveAspectRatio="none" no markup e o que torna isso responsivo: a
+   largura e sempre 100% e a altura e a do CSS, entao a onda ESTICA. A versao
+   antiga era PNG de 428px com background-size: cover, que CORTAVA a onda
+   conforme a largura — foi o que quebrou quando o layout ganhou tablet, e o
+   motivo de as ondas terem sido removidas em abril de 2024.
+
+   A altura sai de medicao, nao de gosto: nos dois originais a faixa da onda
+   e ~17% da largura da viewport (251px de 1440, e 73px de 428). Entao 17vw
+   reproduz o design, com piso para telefone e teto para nao comer meia tela
+   num monitor largo. */
+.onda {
+	display: block;
+	width: 100%;
+	height: clamp(64px, 17vw, 220px);
+	color: var(--background);
+
+	/* body, header, section e footer ja transitam 0.5s na troca de tema;
+	   sem isto a onda trocaria de cor num salto, fora de compasso. */
+	transition: color 0.5s;
+}
+
+/* Antes das secoes com fundo de destaque. */
+.onda--laranja {
+	color: var(--background-destaque);
+}
+
+/* A onda e decorativa e mede em vw: quem pediu menos movimento nao ganha
+   nada com ela ocupando mais tela, mas tambem nao ha animacao a desligar.
+   O que importa e nao deixar altura absurda em telas muito largas — o clamp
+   ja cobre. */

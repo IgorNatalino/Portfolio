@@ -46,6 +46,22 @@
          currentColor faz o icone seguir a cor do tema, sem duplicar arquivo. -->
     <svg class="sprite_icones" aria-hidden="true" focusable="false"
         xmlns="http://www.w3.org/2000/svg">
+        <!-- Onda divisora. O contorno foi medido do proprio wave.png do
+             historico (1440x500, a exportacao do Figma): 17 pontos de uma
+             Catmull-Rom, com erro medio de 0,44px e maximo de 2,66px sobre
+             uma cresta de 107px. preserveAspectRatio="none" e o ponto: a
+             altura passa a ser do CSS, entao a onda estica em vez de cortar.
+
+             As proporcoes tambem sao medidas: nos quatro PNGs a faixa total
+             da onda e 2,4x a amplitude da crista (2,44 / 2,43 / 2,35 / 2,34) e
+             a segunda camada fica 1,5x a amplitude abaixo. Com amplitude 60,
+             isso da viewBox de 144 e deslocamento de 84 — e 84 = 144-60 faz a
+             crista da camada da frente tocar a base exatamente, como no
+             original, onde a segunda borda chega a y=80 de uma base em 84. -->
+        <symbol id="onda" viewBox="0 0 1440 144" preserveAspectRatio="none">
+            <path fill="currentColor" opacity="0.55" d="M0,0C15,3.3 60,13.5 90.1,19.6C120.1,25.8 150.1,31.9 180.1,37C210.1,42.1 240.2,47.8 270.2,50.5C300.2,53.2 330.2,51.7 360.3,53.3C390.3,54.9 420.3,59.6 450.3,60C480.3,60.4 510.4,57.9 540.4,55.5C570.4,53.1 600.4,49.2 630.4,45.4C660.5,41.7 690.6,36.6 720.5,33.1C750.4,29.5 779.7,25.3 809.6,24.1C839.4,22.9 869.6,23.7 899.6,25.8C929.6,27.9 959.7,35.2 989.7,36.4C1019.7,37.7 1049.7,34.1 1079.7,33.1C1109.8,32.1 1139.8,30.9 1169.8,30.3C1199.8,29.6 1229.9,29.1 1259.9,29.2C1289.9,29.3 1319.9,29.7 1349.9,30.8C1380,32 1425,35 1440,35.9L1440,144L0,144Z" />
+            <path fill="currentColor" transform="translate(0 84)" d="M0,0C15,3.3 60,13.5 90.1,19.6C120.1,25.8 150.1,31.9 180.1,37C210.1,42.1 240.2,47.8 270.2,50.5C300.2,53.2 330.2,51.7 360.3,53.3C390.3,54.9 420.3,59.6 450.3,60C480.3,60.4 510.4,57.9 540.4,55.5C570.4,53.1 600.4,49.2 630.4,45.4C660.5,41.7 690.6,36.6 720.5,33.1C750.4,29.5 779.7,25.3 809.6,24.1C839.4,22.9 869.6,23.7 899.6,25.8C929.6,27.9 959.7,35.2 989.7,36.4C1019.7,37.7 1049.7,34.1 1079.7,33.1C1109.8,32.1 1139.8,30.9 1169.8,30.3C1199.8,29.6 1229.9,29.1 1259.9,29.2C1289.9,29.3 1319.9,29.7 1349.9,30.8C1380,32 1425,35 1440,35.9L1440,144L0,144Z" />
+        </symbol>
         <symbol id="icone-github" viewBox="0 0 20 20">
             <path fill="currentColor" d="M10,0 C15.523,0 20,4.59 20,10.253 C20,14.782 17.138,18.624 13.167,19.981 C12.66,20.082 12.48,19.762 12.48,19.489 C12.48,19.151 12.492,18.047 12.492,16.675 C12.492,15.719 12.172,15.095 11.813,14.777 C14.04,14.523 16.38,13.656 16.38,9.718 C16.38,8.598 15.992,7.684 15.35,6.966 C15.454,6.707 15.797,5.664 15.252,4.252 C15.252,4.252 14.414,3.977 12.505,5.303 C11.706,5.076 10.85,4.962 10,4.958 C9.15,4.962 8.295,5.076 7.497,5.303 C5.586,3.977 4.746,4.252 4.746,4.252 C4.203,5.664 4.546,6.707 4.649,6.966 C4.01,7.684 3.619,8.598 3.619,9.718 C3.619,13.646 5.954,14.526 8.175,14.785 C7.889,15.041 7.63,15.493 7.54,16.156 C6.97,16.418 5.522,16.871 4.63,15.304 C4.63,15.304 4.101,14.319 3.097,14.247 C3.097,14.247 2.122,14.234 3.029,14.87 C3.029,14.87 3.684,15.185 4.139,16.37 C4.139,16.37 4.726,18.2 7.508,17.58 C7.513,18.437 7.522,19.245 7.522,19.489 C7.522,19.76 7.338,20.077 6.839,19.982 C2.865,18.627 0,14.783 0,10.253 C0,4.59 4.478,0 10,0" />
         </symbol>
@@ -186,6 +202,10 @@
         </section>
 
         <!-- SOBRE -->
+        <svg class="onda onda--clara" viewBox="0 0 1440 144"
+            preserveAspectRatio="none" aria-hidden="true">
+            <use href="#onda" />
+        </svg>
 
         <section class="section_main" id="Sobre">
             <p class="underdesign">Sobre</p>
@@ -229,6 +249,10 @@
         </section>
 
         <!-- SKILLS -->
+        <svg class="onda onda--laranja" viewBox="0 0 1440 144"
+            preserveAspectRatio="none" aria-hidden="true">
+            <use href="#onda" />
+        </svg>
 
         <section class="section_main_laranja" id="Skills">
             <p class="underdesign">Skills</p>
@@ -294,6 +318,10 @@
         </section>
 
         <!-- PROJETOS -->
+        <svg class="onda onda--clara" viewBox="0 0 1440 144"
+            preserveAspectRatio="none" aria-hidden="true">
+            <use href="#onda" />
+        </svg>
         <section class="section_main" id="Projetos">
             <p class="underdesign">Projetos</p>
             <h2 class="subtitulo">Projetos</h2>
@@ -302,6 +330,10 @@
         </section>
 
         <!-- EXPERIENCIA -->
+        <svg class="onda onda--laranja" viewBox="0 0 1440 144"
+            preserveAspectRatio="none" aria-hidden="true">
+            <use href="#onda" />
+        </svg>
         <section class="section_main_laranja" id="Experiencias">
             <p class="underdesign">Experiencia</p>
             <h2 class="subtitulo">Experiencia</h2>
@@ -379,6 +411,10 @@
         </section>
 
         <!-- CONTATO -->
+        <svg class="onda onda--clara" viewBox="0 0 1440 144"
+            preserveAspectRatio="none" aria-hidden="true">
+            <use href="#onda" />
+        </svg>
 
         <section class="section_main" id="Contato">
             <p class="underdesign">Contato</p>
