@@ -24,8 +24,13 @@
 	width: 100%;
 	height: clamp(64px, 17vw, 220px);
 
-	background-color: var(--onda-de);
-	color: var(--onda-para);
+	/* Fallback obrigatorio nos dois. Sem ele, uma onda sem classe de variante
+	   perde a custom property, o color cai para o herdado — que e PRETO, porque
+	   nada define color no body — e a onda aparece como uma faixa negra. Com
+	   fallback ela apenas some, o que e um defeito discreto em vez de um
+	   berro. */
+	background-color: var(--onda-de, transparent);
+	color: var(--onda-para, var(--background));
 
 	/* body, header, section e footer ja transitam 0.5s na troca de tema;
 	   sem isto a onda trocaria de cor num salto, fora de compasso. */
