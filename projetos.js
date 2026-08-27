@@ -7,15 +7,11 @@ const icones = {
 	JavaScript: 'assets/Icons/js-svgrepo-com.svg',
 	Sass: 'assets/Icons/sass-svgrepo-com.svg',
 	Git: 'assets/Icons/git-svgrepo-com.svg',
-	Photoshop: 'assets/Icons/adobe-photoshop-svgrepo-com.svg',
 	Figma: 'assets/Icons/figma-svgrepo-com.svg',
 	NodeJS: 'assets/Icons/nodejs-icon-svgrepo-com.svg',
 	Tailwind: 'assets/Icons/tailwind-svgrepo-com.svg',
-	Wordpress: 'assets/Icons/wordpress-icon-logo-svgrepo-com.svg',
 	TypeScript: 'assets/Icons/typescript-svgrepo-com.svg',
-	MySQL: '#icone-mysql',
 	Angular: 'assets/Icons/angular-svgrepo-com.svg',
-	AWS: '#icone-aws',
 };
 
 function gerarIcone(nome) {
@@ -119,7 +115,7 @@ const projetos = [
 		],
 		links: {
 			site: `https://in-qrcode.netlify.app/`,
-			code: `https://github.com/IgorNatalino/`,
+			code: `https://github.com/IgorNatalino/QR-Code`,
 		},
 	},
 	{

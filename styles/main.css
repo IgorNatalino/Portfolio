@@ -181,6 +181,11 @@ html[data-theme='dark'] .textos {
 	margin: 20px 0;
 }
 
+.exp_adf {
+	width: 82%;
+	max-width: 420px;
+}
+
 .exp_wet {
 	width: 80%;
 	max-width: 400px;

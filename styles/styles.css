@@ -9,7 +9,6 @@
 :root {
 	--fonte-principal: 'Poppins', sans-serif;
 	--sombra: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
-	--preto: #000;
 	--branco: #fff;
 	--azul: #004174;
 	--azul-marinho: #00223c;
@@ -17,7 +16,6 @@
 	--azul-escuro: #00070c; /* APENAS DARK MODE */
 	--laranja: #ff7600;
 	--laranja-secundario: #ffc795;
-	--laranja-botoes: #ffaa60;
 	--cinza: #f1f1f1;
 	--cinza-escuro: #d9d9d9;
 
@@ -37,7 +35,6 @@
 	--hover: var(--azul-marinho);
 	--botoes: var(--laranja);
 	--botoes-texto: var(--branco);
-	--skills-background: var(--laranja-botoes);
 	--botao-top-1: var(--azul);
 	--botao-top-2: var(--azul-dark);
 	--switch-input: var(--cinza-escuro);
@@ -56,7 +53,6 @@
 	--hover: var(--azul-dark);
 	--botoes: var(--laranja);
 	--botoes-texto: var(--branco);
-	--skills-background: var(--azul-escuro);
 	--botao-top-1: var(--azul);
 	--botao-top-2: var(--azul-dark);
 	--switch-input: var(--cinza-escuro);
