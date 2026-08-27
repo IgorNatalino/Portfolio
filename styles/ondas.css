@@ -1,36 +1,51 @@
 /* ONDAS DIVISORAS */
 
-/* Cada onda e pintada na cor da secao que vem DEPOIS dela, e fica sobre o
-   fundo da secao anterior. Como o fill vem de currentColor e a cor vem de
-   token, o divisor acompanha os dois temas sem um segundo arquivo.
+/* Cada onda e pintada na cor da secao que vem DEPOIS dela — e por isso o
+   fundo ATRAS dela tem de ser a cor da secao ANTERIOR, senao ela desaparece.
+   Nao da para contar com a transparencia: .section_main nao tem
+   background-color proprio, quem pinta e o body, entao uma onda da cor do
+   body sobre o fundo do body fica invisivel. Era por isso que o .wave do
+   design original carregava background-color: var(--laranja-secundario).
+
+   Dai as variantes serem nomeadas por DE ONDE a onda vem: e a origem que
+   define o fundo, e o destino que define o fill.
 
    preserveAspectRatio="none" no markup e o que torna isso responsivo: a
-   largura e sempre 100% e a altura e a do CSS, entao a onda ESTICA. A versao
+   largura e sempre 100% e a altura vem do CSS, entao a onda ESTICA. A versao
    antiga era PNG de 428px com background-size: cover, que CORTAVA a onda
    conforme a largura — foi o que quebrou quando o layout ganhou tablet, e o
    motivo de as ondas terem sido removidas em abril de 2024.
 
-   A altura sai de medicao, nao de gosto: nos dois originais a faixa da onda
-   e ~17% da largura da viewport (251px de 1440, e 73px de 428). Entao 17vw
-   reproduz o design, com piso para telefone e teto para nao comer meia tela
-   num monitor largo. */
+   A altura sai de medicao: nos dois originais a faixa da onda e ~17% da
+   largura da viewport (251px de 1440, e 73px de 428). O piso serve o
+   telefone e o teto evita comer meia tela num monitor largo. */
 .onda {
 	display: block;
 	width: 100%;
 	height: clamp(64px, 17vw, 220px);
-	color: var(--background);
+
+	background-color: var(--onda-de);
+	color: var(--onda-para);
 
 	/* body, header, section e footer ja transitam 0.5s na troca de tema;
 	   sem isto a onda trocaria de cor num salto, fora de compasso. */
-	transition: color 0.5s;
+	transition: background-color 0.5s, color 0.5s;
 }
 
-/* Antes das secoes com fundo de destaque. */
-.onda--laranja {
-	color: var(--background-destaque);
+/* Da apresentacao para a primeira secao. */
+.onda--do-header {
+	--onda-de: var(--header-background);
+	--onda-para: var(--background);
 }
 
-/* A onda e decorativa e mede em vw: quem pediu menos movimento nao ganha
-   nada com ela ocupando mais tela, mas tambem nao ha animacao a desligar.
-   O que importa e nao deixar altura absurda em telas muito largas — o clamp
-   ja cobre. */
+/* De uma secao normal para uma de destaque. */
+.onda--do-fundo {
+	--onda-de: var(--background);
+	--onda-para: var(--background-destaque);
+}
+
+/* De uma secao de destaque de volta para uma normal. */
+.onda--do-destaque {
+	--onda-de: var(--background-destaque);
+	--onda-para: var(--background);
+}
