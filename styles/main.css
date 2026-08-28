@@ -134,6 +134,28 @@ html[data-theme='dark'] .subtitulo {
 	font-weight: 400;
 }
 
+/* O reset zera cor e sublinhado de toda ancora (a { color: inherit }), entao
+   link dentro de paragrafo fica indistinguivel do texto e precisa de estilo
+   proprio.
+
+   Quem carrega o sinal aqui e o sublinhado, nao a cor. O laranja
+   (--cor-destaque-2) seria o accent natural, mas sobre o cinza do tema claro
+   da 2,37:1 — o WCAG AA pede 4,5:1 para texto normal. Com --texto-principal
+   sao 14,37:1 no claro e branco sobre azul no escuro, e o sublinhado mais o
+   peso ja distinguem do corpo do paragrafo. */
+.link_texto {
+	color: var(--texto-principal);
+	text-decoration: underline;
+	text-underline-offset: 2px;
+	font-weight: 600;
+}
+
+@media (hover: hover) {
+	.link_texto:hover {
+		text-decoration-thickness: 2px;
+	}
+}
+
 .textos {
 	color: var(--texto-principal);
 	line-height: 145%;
