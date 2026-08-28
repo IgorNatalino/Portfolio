@@ -7,13 +7,33 @@
 	gap: 26px;
 }
 
-/* Os cards vem do repo de perfil (github.com/IgorNatalino/assets/cards), ja
-   com fundo, canto arredondado e rotulo proprios — entao aqui nao entra
-   background nem padding, senao viram caixa dentro de caixa. O rotulo tambem
-   resolve um problema antigo: as skills eram logos sem legenda. */
-.skills_card {
-	width: clamp(4.25rem, 4rem + 1.5vw, 5.5rem);
-	height: auto;
+/* Cada skill e icone dentro de caixa colorida, com o nome embaixo em texto.
+   O nome era embutido no PNG do card e vinha com a fonte do card; como texto
+   ele herda a Poppins da pagina e escala com o resto. */
+.skills_item {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 10px;
+	width: clamp(6rem, 5.5rem + 2vw, 7.5rem);
+}
+
+.skills_icone {
+	background-color: var(--skills-background);
+	width: clamp(5.5rem, 5rem + 2vw, 7rem);
+	height: clamp(5.5rem, 5rem + 2vw, 7rem);
+	object-fit: contain;
+	padding: 18px;
+	border-radius: 22px;
+	box-sizing: border-box;
+}
+
+.skills_nome {
+	color: var(--texto-principal);
+	font-size: 0.8125rem;
+	font-weight: 500;
+	text-align: center;
+	line-height: 1.25;
 }
 
 .skills_grupo {
