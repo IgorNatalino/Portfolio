@@ -307,3 +307,31 @@ html[data-theme='dark'] .textos {
 		padding: 0 300px 40px;
 	}
 }
+
+/* ── Ondas de transição entre seções ───────────────────────────────────────
+   Uma única forma (#onda no sprite), reaproveitada nas quatro transições.
+   O que muda é a cor: `color` pinta a onda com a cor da seção que chega e
+   `background` mantém a cor da seção que sai atrás da parte transparente.
+   Por isso os dois lados vêm de token e o dark mode acompanha sozinho.       */
+.onda {
+	display: block;
+	width: 100%;
+	height: clamp(48px, 7vw, 110px);
+	margin-bottom: -1px; /* mata a linha de 1px que o arredondamento deixa */
+}
+
+.onda--para-destaque {
+	background-color: var(--background);
+	color: var(--background-destaque);
+}
+
+.onda--para-base {
+	background-color: var(--background-destaque);
+	color: var(--background);
+}
+
+/* A primeira onda sai do topo, que usa o fundo do cabeçalho, não o da seção. */
+.onda--do-topo {
+	background-color: var(--header-background);
+	color: var(--background);
+}
