@@ -11,11 +11,26 @@
 	padding: 0 24px;
 }
 
+/* O gatilho do menu virou <button>. Antes era o proprio <svg> com um
+   listener de click: no celular, de teclado, o menu era inalcancavel. O
+   padding e o z-index moram no botao, que e o alvo do toque; o <svg> por
+   dentro so carrega o desenho.
+
+   `all: unset` do reset zera o display do botao, por isso ele vem explicito. */
+.cabecalho_menu_btn {
+	display: flex;
+	align-items: center;
+	padding: 0 24px;
+	z-index: 2;
+	background: none;
+	border: none;
+	cursor: pointer;
+}
+
 .cabecalho_menu {
 	stroke: var(--cor-destaque);
 	width: 50px;
-	padding: 0 24px;
-	z-index: 2;
+	display: block;
 }
 
 .hidden {
@@ -38,8 +53,11 @@ label.switch_desk {
 	display: none;
 }
 
+/* --laranja-texto, nao --cor-destaque-2: o laranja da marca sobre o cinza do
+   menu claro da 2,37:1. Este token e a versao do laranja que passa AA em
+   cada tema. */
 .menu_lista_titulo {
-	color: var(--cor-destaque-2);
+	color: var(--laranja-texto);
 	font-weight: bold;
 }
 
@@ -137,7 +155,7 @@ input:checked + .slider_desk:before {
 		padding: 0 80px;
 	}
 
-	.cabecalho_menu {
+	.cabecalho_menu_btn {
 		display: none;
 	}
 

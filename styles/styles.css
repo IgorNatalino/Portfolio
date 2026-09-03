@@ -5,6 +5,7 @@
 @import url(projetos.css);
 @import url(skills.css);
 @import url(rodape.css);
+@import url(acessibilidade.css);
 
 :root {
 	--fonte-principal: 'Poppins', sans-serif;
@@ -17,8 +18,16 @@
 	--laranja: #ff7600;
 	--laranja-secundario: #ffc795;
 	--laranja-botoes: #ffaa60;
+	/* O laranja da marca reprova AA como cor de texto sobre fundo claro:
+	   #ff7600 sobre o cinza #f1f1f1 da 2,37:1, e o WCAG pede 4,5:1. Este
+	   tom queimado da 4,67:1 no mesmo fundo e existe so para texto. */
+	--laranja-queimado: #b34d00;
 	--cinza: #f1f1f1;
 	--cinza-escuro: #d9d9d9;
+	/* Trilho do switch no tema claro. O #d9d9d9 de antes dava 1,41:1 sobre o
+	   branco do cabecalho — componente de interface pede 3:1 (WCAG 1.4.11).
+	   Este da 3,36:1. */
+	--cinza-medio: #8c8c8c;
 
 	--font-titulo-desk: 25px;
 	--font-sub-desk: 20px;
@@ -35,12 +44,16 @@
 	--cor-destaque-2: var(--laranja);
 	--hover: var(--azul-marinho);
 	--botoes: var(--laranja);
-	--botoes-texto: var(--branco);
+	/* Branco sobre o laranja da 2,68:1 — reprova AA. O azul-marinho no mesmo
+	   laranja da 6,06:1 e nao mexe na paleta. */
+	--botoes-texto: var(--azul-marinho);
+	--laranja-texto: var(--laranja-queimado);
 	--skills-background: var(--laranja-botoes);
 	--botao-top-1: var(--azul);
 	--botao-top-2: var(--azul-dark);
-	--switch-input: var(--cinza-escuro);
+	--switch-input: var(--cinza-medio);
 	--texto-opaco: rgb(0 0 0 / 6%);
+	--foco: var(--azul-marinho);
 }
 
 [data-theme='dark'] {
@@ -54,12 +67,16 @@
 	--cor-destaque-2: var(--laranja);
 	--hover: var(--azul-dark);
 	--botoes: var(--laranja);
-	--botoes-texto: var(--branco);
+	--botoes-texto: var(--azul-marinho);
+	/* No escuro o laranja da marca ja passa (7,57:1 sobre o #00070c do menu);
+	   o tom queimado e que reprovaria, com 3,84:1. */
+	--laranja-texto: var(--laranja);
 	--skills-background: var(--azul-escuro);
 	--botao-top-1: var(--azul);
 	--botao-top-2: var(--azul-dark);
 	--switch-input: var(--cinza-escuro);
 	--texto-opaco: rgba(0, 0, 0, 0.349);
+	--foco: var(--branco);
 }
 
 html {
@@ -80,5 +97,18 @@ footer {
 	transition: 0.5s;
 }
 
+/* Quem pede menos movimento no sistema tambem esta pedindo aqui: a rolagem
+   suave da pagina, a transicao de 0,5s entre temas e o scroll do botao de
+   voltar ao topo (esse esta no main.js, que le a mesma media query). */
+@media (prefers-reduced-motion: reduce) {
+	html {
+		scroll-behavior: auto;
+	}
 
-
+	body,
+	header,
+	section,
+	footer {
+		transition: none;
+	}
+}

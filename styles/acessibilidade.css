@@ -1,0 +1,83 @@
+/* ACESSIBILIDADE
+   Foco visivel, link de pular navegacao e a classe de texto so para leitor
+   de tela. Tudo o que existe para quem navega de teclado ou de leitor de
+   tela, sem afetar quem usa mouse. */
+
+/* ── Foco visivel ──────────────────────────────────────────────────────────
+   O reset zera `outline` junto com o resto (`button { all: unset }`), entao
+   nenhum elemento interativo mostrava onde o Tab estava. :focus-visible, e
+   nao :focus, porque o navegador so o aplica quando o foco veio do teclado —
+   clique de mouse continua sem anel.
+
+   :where() mantem especificidade zero: qualquer regra do proprio componente
+   ganha desta sem precisar de !important.                                   */
+:where(a, button, input, summary, [tabindex]):focus-visible {
+	outline: 3px solid var(--foco);
+	outline-offset: 3px;
+	border-radius: 4px;
+}
+
+/* O input do switch de tema e opacity 0 com 0x0 de tamanho — o anel nele nao
+   desenha nada. Quem recebe o foco visual e o `.slider`, que e o que aparece
+   na tela. */
+.switch input:focus-visible + .slider,
+.switch_desk input:focus-visible + .slider_desk {
+	outline: 3px solid var(--foco);
+	outline-offset: 4px;
+}
+
+/* ── Pular para o conteudo ─────────────────────────────────────────────────
+   Primeiro elemento focavel da pagina. Fora da tela ate receber foco: sai do
+   caminho de quem usa mouse e aparece no primeiro Tab.
+
+   position: fixed, nao absolute: absolute ancoraria no topo do documento e o
+   link sumiria da viewport se a pagina abrisse ja rolada, por ancora ou por
+   restauracao de posicao.                                                   */
+.pular-conteudo {
+	position: fixed;
+	top: 0;
+	left: 50%;
+	z-index: 100;
+	transform: translate(-50%, -110%);
+	background-color: var(--header-background);
+	color: var(--texto-principal);
+	border: 2px solid var(--foco);
+	border-radius: 0 0 8px 8px;
+	padding: 12px 20px;
+	font-weight: 600;
+	font-size: 1rem;
+	transition: transform 0.2s ease;
+}
+
+.pular-conteudo:focus {
+	transform: translate(-50%, 0);
+}
+
+/* O <main> recebe o foco pelo link acima. Sem tabindex="-1" no alvo o
+   navegador rola a pagina mas deixa o foco no link, e o Tab seguinte volta
+   para o menu — exatamente o que o link existe para evitar. Sem anel: quem
+   chegou aqui pediu para pular, nao para focar um bloco de texto. */
+.main_container:focus {
+	outline: none;
+}
+
+/* ── Texto so para leitor de tela ──────────────────────────────────────────
+   Retira da tela sem retirar da arvore de acessibilidade. display:none e
+   visibility:hidden fariam o leitor de tela ignorar. */
+.sr-only {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	margin: -1px;
+	padding: 0;
+	overflow: hidden;
+	clip-path: inset(50%);
+	white-space: nowrap;
+	border: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.pular-conteudo {
+		transition: none;
+	}
+}
