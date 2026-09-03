@@ -1,24 +1,24 @@
+/* O card e branco nos dois temas, de proposito: ilha clara sobre o fundo
+   escuro. O que sai daqui e a cor cravada — `white` virou token — e a cor do
+   texto, que antes nao era declarada em lugar nenhum e vinha do preto padrao
+   do navegador. Com o fundo fixo, o texto tambem tem de ser fixo: se herdasse
+   --texto-principal, ficaria branco no branco no tema escuro. */
 .projetos_card {
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
 	width: 300px;
-	background: white;
+	background: var(--branco);
+	color: var(--azul-marinho);
 	padding: 0.5rem;
 	border-radius: 6px;
 	box-shadow: rgba(36, 36, 36, 0.05) 0px 6px 24px 0px, rgba(184, 184, 184, 0.08) 0px 0px 0px 1px;
 }
 
-/* ATENCAO: este seletor nunca casou com nada. O JS cria a div com
-   'projetos_card_imagem' (underscore) e aqui esta 'card-imagem' (hifen),
-   entao o height: 200px nunca foi aplicado desde que existe. Corrigir muda o
-   layout dos cards, o que esta fora do escopo desta refatoracao — decisao de
-   aplicar ou apagar fica registrada na issue. */
-.projetos_card-imagem {
-	width: 100%;
-	height: 200px;
-}
-
+/* O seletor `.projetos_card-imagem` (hifen) que existia aqui foi apagado:
+   nunca casou com nada, porque o JS cria a div com underscore. Aplicar o
+   `height: 200px` dele agora abriria 50px de vazio embaixo da imagem, que
+   tem 150px — o layout que esta no ar e o layout certo. */
 .projetos_card_imagem > img {
 	object-fit: cover;
 	width: 100%;
@@ -26,8 +26,12 @@
 	border-radius: 6px 6px 0 0;
 }
 
-.projetos_card_imagem:hover {
-	transform: scale(0.98);
+/* Em touch o :hover fica preso depois do toque, e o card encolhido nao volta
+   ate o proximo toque em outro lugar. */
+@media (hover: hover) {
+	.projetos_card_imagem:hover {
+		transform: scale(0.98);
+	}
 }
 
 .projetos_titulo {
@@ -87,9 +91,18 @@ svg.projetos_skills_img {
 	box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
 	transition: all 0.3s ease 0s;
 	cursor: pointer;
-	outline: none;
 }
 
 .projetos_card_btn:active {
 	transform: translateY(-1px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.projetos_card_btn {
+		transition: none;
+	}
+
+	.projetos_card_imagem > img {
+		transition: none;
+	}
 }
