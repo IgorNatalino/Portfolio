@@ -40,6 +40,10 @@
 </head>
 
 <body>
+    <!-- Primeiro elemento focavel: fora da tela ate o primeiro Tab. Sem ele,
+         quem navega de teclado percorre o menu inteiro a cada visita. -->
+    <a class="pular-conteudo" href="#conteudo">Pular para o conteúdo</a>
+
     <!-- Sprite de icones: um symbol por icone, referenciado por use/href.
          Cada symbol guarda o proprio viewBox, entao os icones nao precisam
          compartilhar sistema de coordenadas — quem define o tamanho e o CSS.
@@ -74,27 +78,34 @@
     <header class="cabecalho">
         <img class="cabecalho_logo" src="assets/Foxys-ICO.png" alt="Logo de Raposa Igor Natalino">
 
-        <svg class="cabecalho_menu" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 10"
-            stroke-width=".6" fill="rgba(0,0,0,0)" stroke-linecap="round">
-            <title>Abrir menu</title>
-            <path d="M2,3L5,3L8,3M2,5L8,5M2,7L5,7L8,7">
-                <animate dur="0.2s" attributeName="d"
-                    values="M2,3L5,3L8,3M2,5L8,5M2,7L5,7L8,7;M3,3L5,5L7,3M5,5L5,5M3,7L5,5L7,7" fill="freeze"
-                    begin="start.begin" />
-                <animate dur="0.2s" attributeName="d"
-                    values="M3,3L5,5L7,3M5,5L5,5M3,7L5,5L7,7;M2,3L5,3L8,3M2,5L8,5M2,7L5,7L8,7" fill="freeze"
-                    begin="reverse.begin" />
-            </path>
-            <rect width="10" height="10" stroke="none">
-                <animate dur="1s" id="reverse" attributeName="width" begin="click" />
-            </rect>
-            <rect width="10" height="10" stroke="none">
-                <animate dur="0.001s" id="start" attributeName="width" values="10;0" fill="freeze" begin="click" />
-                <animate dur="0.001s" attributeName="width" values="0;10" fill="freeze" begin="reverse.begin" />
-            </rect>
-        </svg>
+        <!-- Gatilho do menu. Era o proprio <svg>, com um listener de click e
+             role="img": de teclado nao recebia foco e nao respondia a Enter,
+             o que deixava o menu do celular inalcancavel. Agora e um <button>,
+             que ja vem focavel, acionavel por Enter e por Espaco, e anunciado
+             como botao pelo leitor de tela.
 
-        <ul class="cabecalho_menu_lista hidden">
+             aria-expanded diz se a lista esta aberta; aria-controls aponta
+             qual lista. Os dois sao atualizados pelo main.js.
+
+             As duas animacoes eram disparadas por begin="click" em <rect>
+             invisiveis empilhados — truque que so funciona com clique de
+             mouse. Viraram begin="indefinite", acionadas por beginElement()
+             a partir do JS, que atende teclado e mouse pelo mesmo caminho. -->
+        <button class="cabecalho_menu_btn" type="button" aria-expanded="false" aria-controls="menu-mobile">
+            <span class="sr-only menu_rotulo">Abrir menu</span>
+            <svg class="cabecalho_menu" aria-hidden="true" focusable="false"
+                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 10"
+                stroke-width=".6" fill="rgba(0,0,0,0)" stroke-linecap="round">
+                <path d="M2,3L5,3L8,3M2,5L8,5M2,7L5,7L8,7">
+                    <animate id="menu-abre" dur="0.2s" attributeName="d" fill="freeze" begin="indefinite"
+                        values="M2,3L5,3L8,3M2,5L8,5M2,7L5,7L8,7;M3,3L5,5L7,3M5,5L5,5M3,7L5,5L7,7" />
+                    <animate id="menu-fecha" dur="0.2s" attributeName="d" fill="freeze" begin="indefinite"
+                        values="M3,3L5,5L7,3M5,5L5,5M3,7L5,5L7,7;M2,3L5,3L8,3M2,5L8,5M2,7L5,7L8,7" />
+                </path>
+            </svg>
+        </button>
+
+        <ul class="cabecalho_menu_lista hidden" id="menu-mobile">
             <li class="menu_lista_titulo">Categorias</li>
             <li class="menu_lista_itens"><a class="menu_lista_link" href="#Sobre">Sobre</a></li>
             <li class="menu_lista_itens"><a class="menu_lista_link" href="#Skills">Skills</a></li>
@@ -103,8 +114,12 @@
             <li class="menu_lista_itens"><a class="menu_lista_link" href="#Contato">Contato</a></li>
             <li class="menu_lista_rodape">
 
+                <!-- O <label> envolve o input mas nao tem texto nenhum, so o
+                     <span> do desenho: o leitor de tela anunciava "caixa de
+                     selecao" sem dizer de que. role="switch" descreve o que
+                     isto e — um liga/desliga — e o aria-label diz do que. -->
                 <label class="switch">
-                    <input type="checkbox">
+                    <input type="checkbox" role="switch" aria-label="Tema escuro">
                     <span class="slider"></span>
                 </label>
 
@@ -120,13 +135,13 @@
         </ul>
 
         <label class="switch_desk">
-            <input type="checkbox">
+            <input type="checkbox" role="switch" aria-label="Tema escuro">
             <span class="slider_desk"></span>
         </label>
 
     </header>
 
-    <main class="main_container">
+    <main class="main_container" id="conteudo" tabindex="-1">
 
         <button class="voltatopo_btn" type="button" aria-label="Voltar ao topo">
             <svg class="icone_topo" aria-hidden="true"><use href="#icone-topo" /></svg>
@@ -186,10 +201,10 @@
 
         <svg class="onda onda--do-topo" aria-hidden="true" focusable="false"><use href="#onda" /></svg>
         <section class="section_main" id="Sobre">
-            <p class="underdesign">Sobre</p>
+            <p class="underdesign" aria-hidden="true">Sobre</p>
             <h2 class="subtitulo">Sobre</h2>
             <div class="section_sobre">
-                <img loading="lazy" class="sobre_perfil" src="assets/Sobre-Foto.png" alt="Foto de Perfil Redonda">
+                <img loading="lazy" class="sobre_perfil" src="assets/Sobre-Foto.png" alt="Igor Natalino">
                 <article>
                     <p class="textos">
                         Formado em Gestão Financeira pela UNIP (2018–2020) e pós-graduado pela
@@ -226,7 +241,7 @@
 
         <svg class="onda onda--para-destaque" aria-hidden="true" focusable="false"><use href="#onda" /></svg>
         <section class="section_main_laranja" id="Skills">
-            <p class="underdesign">Skills</p>
+            <p class="underdesign" aria-hidden="true">Skills</p>
             <h2 class="subtitulo">Skills</h2>
 
             <h3 class="skills_grupo">Linguagens e frameworks</h3>
@@ -313,16 +328,28 @@
         <!-- PROJETOS -->
         <svg class="onda onda--para-base" aria-hidden="true" focusable="false"><use href="#onda" /></svg>
         <section class="section_main" id="Projetos">
-            <p class="underdesign">Projetos</p>
+            <p class="underdesign" aria-hidden="true">Projetos</p>
             <h2 class="subtitulo">Projetos</h2>
             <div class="projetos_display"></div>
+
+            <!-- Os cards sao montados por JS. Sem script a secao ficava vazia
+                 e muda; o GerarProjetos.js cuida do caso em que o script roda
+                 e falha, e este <noscript> do caso em que ele nao roda. -->
+            <noscript>
+                <p class="textos">
+                    Os projetos desta seção são carregados por JavaScript, que está
+                    desativado no seu navegador. A lista completa está em
+                    <a class="link_texto" target="_blank" rel="noopener"
+                        href="https://github.com/IgorNatalino?tab=repositories">github.com/IgorNatalino</a>.
+                </p>
+            </noscript>
 
         </section>
 
         <!-- EXPERIENCIA -->
         <svg class="onda onda--para-destaque" aria-hidden="true" focusable="false"><use href="#onda" /></svg>
         <section class="section_main_laranja" id="Experiencias">
-            <p class="underdesign">Experiencia</p>
+            <p class="underdesign" aria-hidden="true">Experiencia</p>
             <h2 class="subtitulo">Experiencia</h2>
 
             <picture class="exp_logos">
@@ -356,7 +383,7 @@
             <picture class="exp_logos">
                 <img loading="lazy" class="exp_wet logos_light" src="assets/WET.png" alt="Logo WetnWild">
                 <img loading="lazy" class="exp_wet logos_dark" src="assets/WET_dark.png"
-                    alt="Logo WetnWild Branco">
+                    alt="Logo WetnWild">
             </picture>
             <p class="textos">Assistente de TI &middot; 2023 - 2024</p>
             <p class="textos">
@@ -423,7 +450,7 @@
                 <img loading="lazy" class="exp_master logos_light" src="assets/Logo M.png"
                     alt="Logo Master Contabilidade">
                 <img loading="lazy" class="exp_master logos_dark" src="assets/Logo M_dark.png"
-                    alt="Logo Master Contabilidade Branco">
+                    alt="Logo Master Contabilidade">
             </picture>
 
             <p class="textos">Auxiliar Contábil &middot; 2013 - 2021</p>
@@ -443,7 +470,7 @@
 
         <svg class="onda onda--para-base" aria-hidden="true" focusable="false"><use href="#onda" /></svg>
         <section class="section_main" id="Contato">
-            <p class="underdesign">Contato</p>
+            <p class="underdesign" aria-hidden="true">Contato</p>
             <h2 class="subtitulo">Contato</h2>
 
             <ul class="icones_contatos">

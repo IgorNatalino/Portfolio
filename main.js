@@ -67,16 +67,84 @@
 })();
 
 // ------------------------------------------------------------------- MENU
+// O gatilho agora e um <button> (era o <svg> com um listener de click). Alem
+// de abrir a lista, o estado tem de sair no aria-expanded, no rotulo do botao
+// e no icone — antes so a classe .hidden mudava, e nem o leitor de tela nem
+// quem navega de teclado sabia se o menu estava aberto.
 (function menu() {
-	const gatilho = document.querySelector('.cabecalho_menu');
+	const botao = document.querySelector('.cabecalho_menu_btn');
 	const lista = document.querySelector('.cabecalho_menu_lista');
 
-	if (!gatilho || !lista) {
+	if (!botao || !lista) {
 		return;
 	}
 
-	gatilho.addEventListener('click', () => {
-		lista.classList.toggle('hidden');
+	const rotulo = botao.querySelector('.menu_rotulo');
+	const desenho = botao.querySelector('path');
+	const abre = document.getElementById('menu-abre');
+	const fecha = document.getElementById('menu-fecha');
+	const semAnimacao = window.matchMedia('(prefers-reduced-motion: reduce)');
+
+	const D_HAMBURGUER = 'M2,3L5,3L8,3M2,5L8,5M2,7L5,7L8,7';
+	const D_X = 'M3,3L5,5L7,3M5,5L5,5M3,7L5,5L7,7';
+
+	function estaAberto() {
+		return botao.getAttribute('aria-expanded') === 'true';
+	}
+
+	function trocaIcone(aberto) {
+		// Quem pede menos movimento recebe o icone trocado de uma vez. Neste
+		// caminho o beginElement nunca roda, entao o setAttribute vale — se as
+		// duas formas se misturassem, a animacao congelada (fill="freeze")
+		// venceria o atributo e o icone travaria.
+		if (semAnimacao.matches) {
+			if (desenho) {
+				desenho.setAttribute('d', aberto ? D_X : D_HAMBURGUER);
+			}
+			return;
+		}
+
+		const animacao = aberto ? abre : fecha;
+
+		// beginElement so existe onde ha SMIL. Sem ele o icone fica parado no
+		// hamburguer, e o menu continua abrindo e fechando normalmente.
+		if (animacao && typeof animacao.beginElement === 'function') {
+			try {
+				animacao.beginElement();
+			} catch (erro) {
+				/* icone sem animacao nao impede o menu de funcionar */
+			}
+		}
+	}
+
+	function define(aberto) {
+		lista.classList.toggle('hidden', !aberto);
+		botao.setAttribute('aria-expanded', String(aberto));
+
+		if (rotulo) {
+			rotulo.textContent = aberto ? 'Fechar menu' : 'Abrir menu';
+		}
+
+		trocaIcone(aberto);
+	}
+
+	botao.addEventListener('click', () => {
+		define(!estaAberto());
+	});
+
+	// Escape fecha e devolve o foco ao botao. Sem isso, quem abriu de teclado
+	// so sai da lista tabulando ate o fim dela.
+	document.addEventListener('keydown', (evento) => {
+		if (evento.key === 'Escape' && estaAberto()) {
+			define(false);
+			botao.focus();
+		}
+	});
+
+	// Clicar num item rola para a secao, mas o menu cobre 62% da tela: deixar
+	// aberto tapa justamente o conteudo que a pessoa acabou de pedir.
+	lista.querySelectorAll('.menu_lista_link').forEach((link) => {
+		link.addEventListener('click', () => define(false));
 	});
 })();
 
@@ -112,8 +180,13 @@
 		{ passive: true }
 	);
 
+	// O CSS ja desliga o scroll-behavior: smooth do html em
+	// prefers-reduced-motion, mas o behavior passado aqui na chamada vence a
+	// folha de estilo — precisa ler a mesma preferencia.
+	const semAnimacao = window.matchMedia('(prefers-reduced-motion: reduce)');
+
 	botao.addEventListener('click', () => {
-		window.scrollTo({ top: 0, behavior: 'smooth' });
+		window.scrollTo({ top: 0, behavior: semAnimacao.matches ? 'auto' : 'smooth' });
 	});
 
 	// A pagina pode abrir ja rolada, por ancora ou por restauracao de posicao.
