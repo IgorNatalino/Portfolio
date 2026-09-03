@@ -151,7 +151,14 @@
             <div class="apresentacao_main">
                 <div class="apresentacao_texto">
                     <h1 class="apresentacao_titulo">Olá! Sou Igor Natalino</h1>
-                    <h3 class="apresentacao_subtitulo">Analista de Sistemas &amp; <br> Automação de Processos</h3>
+                    <!-- <p>, nao <h3>: vinha logo depois do <h1> e pulava o h2, o
+                         unico salto de hierarquia que sobrou no Lighthouse. E
+                         chamada de apresentacao, nao cabecalho de secao — nao
+                         abre bloco nenhum, entao nao devia estar no sumario que
+                         o leitor de tela monta com os titulos. O visual nao muda:
+                         o reset normaliza `font: inherit` nos dois, e o tamanho e
+                         o peso vem da classe. -->
+                    <p class="apresentacao_subtitulo">Analista de Sistemas &amp; <br> Automação de Processos</p>
                 </div>
                 <div class="apresentacao_images">
                     <!-- Duas poses empilhadas: repouso (trabalhando) e hover
