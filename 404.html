@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="pt-br" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,minimum-scale=1">
+    <title>404 — Página não encontrada | Igor Natalino</title>
+    <meta name="description" content="A página que você procurava não existe neste site.">
+
+    <!-- Pagina de erro nao deve entrar em indice de busca. -->
+    <meta name="robots" content="noindex, follow">
+
+    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#001525" media="(prefers-color-scheme: dark)">
+
+    <!-- Caminhos absolutos, nao relativos: o Pages serve este arquivo para
+         qualquer URL desconhecida sob /Portfolio/, mas o navegador mantem a URL
+         errada na barra. Em /Portfolio/a/b/c, um href="styles/styles.css"
+         resolveria para /Portfolio/a/b/styles/styles.css e a pagina chegaria
+         sem estilo nenhum. -->
+    <link rel="icon" href="/Portfolio/assets/Foxys-Favicon.ico" sizes="any">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <!-- Os dois, na mesma ordem do index: o styles.css nao importa o reset.
+         Sem ele o <p> do "404" volta a ter a margem padrao de 1em do
+         navegador — que, com font-size de 144px, sao 144px em cima e embaixo,
+         e empurram o botao de voltar para fora da tela. -->
+    <link rel="stylesheet" href="/Portfolio/styles/reset.css">
+    <link rel="stylesheet" href="/Portfolio/styles/styles.css">
+
+    <!-- O tema e aplicado antes de o corpo pintar. No index isso vive no
+         main.js, no fim do body, e quem usa o tema escuro ve um piscar branco;
+         numa pagina de erro esse piscar e a primeira coisa que a pessoa ve. -->
+    <script>
+        (function () {
+            var escolha = null;
+            try {
+                escolha = localStorage.getItem('tema');
+            } catch (erro) {
+                /* navegacao privativa pode bloquear; segue pela preferencia do sistema */
+            }
+            var tema = escolha || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+            document.documentElement.setAttribute('data-theme', tema);
+        })();
+    </script>
+
+    <style>
+        /* Estilo proprio da pagina de erro: reaproveita os tokens do site, mas
+           o layout e outro — uma tela so, centrada, sem secoes. */
+        /* O .cabecalho_logo usa height: 90%, que so resolve contra um pai de
+           altura definida. No index o <img> e filho direto do flex .cabecalho
+           (altura 80px) e a conta fecha. Aqui ele esta dentro do link de volta
+           pra home, e sem isto o link nao tinha altura: a porcentagem nao
+           resolvia, a imagem vinha no tamanho natural e estourava o cabecalho. */
+        .erro_logo_link {
+            display: flex;
+            align-items: center;
+            height: 100%;
+        }
+
+        .erro_pagina {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            /* 80px do cabecalho + 65px do rodape */
+            min-height: calc(100vh - 145px);
+            padding: 40px 25px;
+            box-sizing: border-box;
+            text-align: center;
+            color: var(--texto-principal);
+        }
+
+        .erro_codigo {
+            font-size: clamp(5rem, 22vw, 9rem);
+            font-weight: 700;
+            line-height: 1;
+            color: var(--texto-opaco);
+        }
+
+        .erro_titulo {
+            font-size: clamp(1.25rem, 5vw, 1.75rem);
+            font-weight: 600;
+            /* sobe para dentro do 404, como o .underdesign faz nas secoes */
+            margin-top: -0.6em;
+        }
+
+        .erro_texto {
+            max-width: 46ch;
+            /* .textos justifica o texto, o que num paragrafo curto e centrado
+               abre rios brancos no meio da linha */
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="cabecalho">
+        <a class="erro_logo_link" href="/Portfolio/" aria-label="Voltar ao início">
+            <img class="cabecalho_logo" src="/Portfolio/assets/Foxys-ICO.png"
+                alt="Logo de Raposa Igor Natalino">
+        </a>
+    </header>
+
+    <main class="erro_pagina">
+        <!-- O numerao e ornamento: o titulo abaixo ja diz o que aconteceu, e
+             o codigo repetido faria o leitor de tela anunciar "404" duas vezes. -->
+        <p class="erro_codigo" aria-hidden="true">404</p>
+        <h1 class="erro_titulo">Esta página não existe</h1>
+        <p class="textos erro_texto">
+            O endereço que você abriu não corresponde a nada aqui. Pode ter sido
+            um link antigo, ou um erro de digitação na URL.
+        </p>
+        <a class="btns" href="/Portfolio/">Voltar ao início &gt;&gt;</a>
+    </main>
+
+    <footer class="rodape">
+        <p>&lt;/Agradeço a Visita&gt;</p>
+    </footer>
+</body>
+
+</html>
